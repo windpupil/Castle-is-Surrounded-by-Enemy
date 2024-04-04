@@ -30,9 +30,11 @@ public class WatchTower : Card
                     if (h.collider.CompareTag("PlacedPoint"))
                     {
                         UseAction(h.transform);
-                        break;
+                        StopCoroutine(GetNextClickPos());
                     }
                 }
+                Debug.Log("无效点击");
+                PlacedPoint.Instance.SetActiveFalse();
             }
             yield return null;
         }
