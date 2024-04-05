@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: "\u54E8\u5854"
   cardDescription: "\u6700\u4F4E\u7EA7\u7684\u653B\u51FB\u5EFA\u7B51"
-  cost: 1
+  cost: 10
   gameObject: {fileID: 3785758096689678933, guid: 0ba2919548f2d024baf296b914d4dc5d, type: 3}

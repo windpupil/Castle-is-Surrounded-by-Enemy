@@ -37,4 +37,11 @@ public class PlacedPoint : MonoBehaviour
     {
         placedBlocks.Remove(go);
     }
+    private void OnDestroy() {
+        Instance = null;
+    }
+    public List<GameObject> GetPlacedBlocks()
+    {
+        return placedBlocks;
+    }
 }

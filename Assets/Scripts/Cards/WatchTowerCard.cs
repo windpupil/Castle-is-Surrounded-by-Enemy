@@ -1,20 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEditor;
 
 public class WatchTower : Card
 {
     public override void Use()
     {
+        if (PlacedPoint.Instance.GetPlacedBlocks().Count == 0)
+        {
+            Debug.Log("没有可放置的位置");
+            return;
+        }
+        if(Manager.Instance.GetCostUI().GetCost()<cardSO.cost)
+        {
+            Debug.Log("能量不足");
+            return;
+        }
         PlacedPoint.Instance.SetActiveTrue();
         StartCoroutine(GetNextClickPos());
     }
     //协程获取下次鼠标点击的位置
+    //会重复放置的问题未被解决
     private IEnumerator GetNextClickPos()
     {
         while (true)
         {
+            Debug.Log(2);
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("点击了鼠标左键");
@@ -29,8 +41,10 @@ public class WatchTower : Card
                 {
                     if (h.collider.CompareTag("PlacedPoint"))
                     {
+                        Debug.Log("有效点击");
                         UseAction(h.transform);
                         StopCoroutine(GetNextClickPos());
+                        yield break;
                     }
                 }
                 Debug.Log("无效点击");
@@ -45,5 +59,6 @@ public class WatchTower : Card
         go.transform.SetParent(target);
         PlacedPoint.Instance.RemoveBlock(target.gameObject);
         PlacedPoint.Instance.SetActiveFalse();
+        Manager.Instance.GetCostUI().SetCost(-cardSO.cost);
     }
 }
