@@ -9,4 +9,5 @@ public class MonsterSO : ScriptableObject
     public int attack;
     public float speed;
     public float attackSpeed;
+    public int addCost;
 }

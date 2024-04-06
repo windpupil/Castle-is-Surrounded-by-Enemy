@@ -7922,6 +7922,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6499371824253832731, guid: e40cddf6d9d10e64a8a44f21b18a4486, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499371824253832731, guid: e40cddf6d9d10e64a8a44f21b18a4486, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6744860166333934649, guid: e40cddf6d9d10e64a8a44f21b18a4486, type: 3}
       propertyPath: m_Name
       value: DogMonster

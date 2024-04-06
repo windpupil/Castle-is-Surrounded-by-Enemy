@@ -16,6 +16,6 @@ MonoBehaviour:
   buildingCost: 10
   attack: 5
   health: 20
-  attackSpeed: 2
+  attackSpeed: 1
   isMultipleUsed: 1
   bullet: {fileID: 6130882652188111072, guid: dd533fadb30f47f4d88361861acc02f5, type: 3}
