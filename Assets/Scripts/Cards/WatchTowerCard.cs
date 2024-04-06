@@ -21,12 +21,10 @@ public class WatchTower : Card
         StartCoroutine(GetNextClickPos());
     }
     //协程获取下次鼠标点击的位置
-    //会重复放置的问题未被解决
     private IEnumerator GetNextClickPos()
     {
         while (true)
         {
-            Debug.Log(2);
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("点击了鼠标左键");
@@ -56,7 +54,7 @@ public class WatchTower : Card
     private void UseAction(Transform target)
     {
         GameObject go = Instantiate(cardSO.gameObject, target.position, Quaternion.identity);
-        go.transform.SetParent(target);
+        go.transform.SetParent(target.parent);
         PlacedPoint.Instance.RemoveBlock(target.gameObject);
         PlacedPoint.Instance.SetActiveFalse();
         Manager.Instance.GetCostUI().SetCost(-cardSO.cost);

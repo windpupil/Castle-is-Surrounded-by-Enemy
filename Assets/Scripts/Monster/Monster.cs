@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Monster : Object
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public MonsterSO monsterSO;
+    private int hp;
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void Start()
     {
-        
+        hp = monsterSO.hp;
+    }
+    public void Sethp(int hp)
+    {
+        this.hp += hp;
+        if(this.hp<=0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
