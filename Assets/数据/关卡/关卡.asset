@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 983bc0d1f62faa54fb46682425d43604, type: 3}
-  m_Name: "\u72D7\u602A\u7269"
+  m_Script: {fileID: 11500000, guid: aae524776bacbcf42ac62a537fba2934, type: 3}
+  m_Name: "\u5173\u5361"
   m_EditorClassIdentifier: 
-  hp: 20
-  attack: 0
-  attackSpeed: 1
-  addCost: 5
-  speed: 50
+  monsters:
+  - {fileID: 6744860166333934649, guid: e40cddf6d9d10e64a8a44f21b18a4486, type: 3}
+  waveTotalNum: 1

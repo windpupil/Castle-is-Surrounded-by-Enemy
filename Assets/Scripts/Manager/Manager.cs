@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+
+
 public class Manager : MonoBehaviour
 {
     public static Manager Instance{get;private set;}
