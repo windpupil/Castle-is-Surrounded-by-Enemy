@@ -8,6 +8,8 @@ public class Monster : Object
     public MonsterSO monsterSO;
     [SerializeField] Image hpBar;
     private int hp;
+    private List<Vector3> WayPointsPosition;
+    private int nextWayPointsIndex = 0;
     public int Hp
     {
         get { return hp; }
@@ -31,6 +33,7 @@ public class Monster : Object
     private void Start()
     {
         Hp = monsterSO.hp;
+        WayPointsPosition = WayPoints.Instance.WayPointsPosition;
     }
     private void OnDestroy()
     {
@@ -48,4 +51,18 @@ public class Monster : Object
     {
         hpBar.fillAmount = (float)hp / monsterSO.hp;
     }
+    protected void Move()
+    {
+        if (nextWayPointsIndex >= WayPointsPosition.Count)
+        {
+            return;
+        }
+        
+        transform.position = Vector3.MoveTowards(transform.position, WayPointsPosition[nextWayPointsIndex], monsterSO.speed * Time.deltaTime);
+        if (WayPointsPosition.Count > nextWayPointsIndex && Vector3.Distance(transform.position, WayPointsPosition[nextWayPointsIndex]) < 0.03f)
+        {
+            nextWayPointsIndex++;
+        }
+    }
+   
 }
