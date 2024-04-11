@@ -16,4 +16,4 @@ MonoBehaviour:
   attack: 0
   attackSpeed: 1
   addCost: 5
-  speed: 50
+  speed: 1
