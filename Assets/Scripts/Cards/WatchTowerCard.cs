@@ -58,5 +58,6 @@ public class WatchTower : Card
         PlacedPoint.Instance.RemoveBlock(target.gameObject);
         PlacedPoint.Instance.SetActiveFalse();
         Manager.Instance.GetCostUI().SetCost(-cardSO.cost);
+        CardManage.Instance.RemoveCard(this);
     }
 }
