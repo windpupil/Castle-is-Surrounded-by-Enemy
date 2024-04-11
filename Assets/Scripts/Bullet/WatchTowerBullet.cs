@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class WatchTowerBullet : Bullet
 {
-    private GameObject target;
-    public void SetTarget(GameObject target)
+    private Vector3 targetPos;
+    public void SetTargetPos(Vector3 target)
     {
-        this.target = target;
+        targetPos = target;
     }
-    private void Update() {
-        if(target!=null)
+    private void Update()
+    {
+        if (targetPos== transform.position)
         {
-            //子弹向敌人移动
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSO.speed * Time.deltaTime);
+            Destroy(gameObject);
+            return;
+        }
+        if (targetPos != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, bulletSO.speed * Time.deltaTime);
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject == target)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            //敌人受到伤害
-            target.GetComponent<Monster>().Sethp(-bulletSO.attack);
+            other.gameObject.GetComponent<Monster>().Sethp(-bulletSO.attack);
             Destroy(gameObject);
         }
     }

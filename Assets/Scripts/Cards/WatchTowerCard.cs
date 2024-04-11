@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using System.Collections.Generic;
-using UnityEditor;
 
 public class WatchTower : Card
 {
@@ -27,7 +25,7 @@ public class WatchTower : Card
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("点击了鼠标左键");
+                // Debug.Log("点击了鼠标左键");
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = 10;
                 Vector3 screenPos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -39,13 +37,13 @@ public class WatchTower : Card
                 {
                     if (h.collider.CompareTag("PlacedPoint"))
                     {
-                        Debug.Log("有效点击");
+                        // Debug.Log("有效点击");
                         UseAction(h.transform);
                         StopCoroutine(GetNextClickPos());
                         yield break;
                     }
                 }
-                Debug.Log("无效点击");
+                // Debug.Log("无效点击");
                 PlacedPoint.Instance.SetActiveFalse();
             }
             yield return null;
