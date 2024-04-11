@@ -19,10 +19,11 @@ public class MonsterSpawner : MonoBehaviour
     //每一波怪刷完后的间隔时间
     private int[] waveInterval;
     //每波怪数量
-    private List<List<KeyValuePair<int, int>>> MonstersPerWave;
+    private List<int> MonstersPerWave_MonsterID;
+    private List<int> MonstersPerWave_MonsterNum;
 
     //下波出怪倒数
-    private float nextWaveCountDown = 0;
+    private int nextWaveCountDown = 0;
 
     private float myTime = 0;
 
@@ -34,7 +35,8 @@ public class MonsterSpawner : MonoBehaviour
 
         waveTotalNum = levelSO.waveTotalNum;
         waveInterval = levelSO.waveInterval;
-        MonstersPerWave = levelSO.MonstersPerWave;
+        MonstersPerWave_MonsterID = levelSO.MonstersPerWave_MonsterID;
+        MonstersPerWave_MonsterNum = levelSO.MonstersPerWave_MonsterNum;
     }
 
 
@@ -46,21 +48,22 @@ public class MonsterSpawner : MonoBehaviour
             return;
         }
         myTime += Time.deltaTime;
-        if (nextWaveCountDown <= 0 && myTime > Globle.spawnInterval)
+        if (nextWaveCountDown <= 0 && myTime > Global.spawnInterval)
         {
-            myTime -= Globle.spawnInterval;
+            myTime -= Global.spawnInterval;
             bool aMonsterIsSpawned = false;
             while (!aMonsterIsSpawned)
             {
-                if (MonstersPerWave[waveCount][spawnMonsterIndex].Value > spawnMonsterCount)
+                if (MonstersPerWave_MonsterNum[waveCount* Global.Max_SpawnMonsterIndex+ spawnMonsterIndex] > spawnMonsterCount)
                 {
                     //通过ID找到怪物，生成
-                    int monsterIndex = MonstersPerWave[waveCount][spawnMonsterIndex].Key;
+                    int monsterIndex = MonstersPerWave_MonsterID[waveCount * Global.Max_SpawnMonsterIndex + spawnMonsterIndex];
+                    Debug.Log(monsterIndex);
                     GameObject generatedMonster = Instantiate(levelSO.monsters[monsterIndex], start.transform.position, Quaternion.identity);
                     aMonsterIsSpawned = true;
                     spawnMonsterCount++;
                 }
-                else if (spawnMonsterIndex + 1 < MonstersPerWave[waveCount].Count)
+                else if (spawnMonsterIndex + 1 < Global.Max_SpawnMonsterIndex)
                 {
                     spawnMonsterIndex++;
                     spawnMonsterCount = 0;
@@ -70,7 +73,7 @@ public class MonsterSpawner : MonoBehaviour
                     Debug.Log("waveEnd!");
                     spawnMonsterCount = 0;
                     spawnMonsterIndex = 0;
-                    if (waveInterval.Length < waveCount)
+                    if (waveInterval.Length > waveCount)
                     {
                         nextWaveCountDown = waveInterval[waveCount];
                     }
