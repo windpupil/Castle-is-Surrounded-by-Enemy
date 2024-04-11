@@ -43,9 +43,12 @@ public class Monster : Object
     {
         this.Hp += hp;
     }
-    public void ReturnCostOnDestroy()
+    private void ReturnCostOnDestroy()
     {
-        Manager.Instance.GetCostUI().SetCost(monsterSO.addCost);
+        if(Manager.Instance != null)
+        {
+            Manager.Instance.GetCostUI().SetCost(monsterSO.addCost);
+        }
     }
     private void UpdateHpBar()
     {
@@ -57,12 +60,10 @@ public class Monster : Object
         {
             return;
         }
-        
         transform.position = Vector3.MoveTowards(transform.position, WayPointsPosition[nextWayPointsIndex], monsterSO.speed * Time.deltaTime);
         if (WayPointsPosition.Count > nextWayPointsIndex && Vector3.Distance(transform.position, WayPointsPosition[nextWayPointsIndex]) < 0.03f)
         {
             nextWayPointsIndex++;
         }
     }
-   
 }
