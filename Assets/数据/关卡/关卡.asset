@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsters:
   - {fileID: 6744860166333934649, guid: e40cddf6d9d10e64a8a44f21b18a4486, type: 3}
-  waveTotalNum: 1
+  waveTotalNum: 2
+  waveInterval: 05000000
