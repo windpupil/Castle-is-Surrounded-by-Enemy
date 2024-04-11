@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Globle
+public static class Global
 {
-    public const float spawnInterval = 0.1f;
+    public const float spawnInterval = 1f;
+    public const int Max_SpawnMonsterIndex = 10;
 }
 
 

@@ -22,5 +22,6 @@ public class LevelSO : ScriptableObject
     public List<GameObject> monsters;
     public int waveTotalNum;
     public int[] waveInterval;
-    public List<List<KeyValuePair<int,int>>> MonstersPerWave;
+    public List<int> MonstersPerWave_MonsterID;
+    public List<int> MonstersPerWave_MonsterNum;
 }
