@@ -9,7 +9,7 @@ public class CostUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI costText;
 
     // private int costMax = 100;
-    private float cost=10;
+    private float cost=50;
     private float Cost
     {
         get
