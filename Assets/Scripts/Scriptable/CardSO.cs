@@ -8,4 +8,5 @@ public class CardSO : ScriptableObject {
     public string cardDescription;
     public int cost;
     public GameObject gameObject;
+    // public int discardedCost;
 }

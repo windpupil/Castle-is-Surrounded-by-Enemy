@@ -94,13 +94,14 @@ public class AutoSaveAndPlayMode : EditorWindow
     {
         if (state == PlayModeStateChange.ExitingEditMode)
         {
-            // 在即将切换到播放模式时执行的代码
-            bool shouldSaveScene = EditorUtility.DisplayDialog("保存 场景", "是否要在进入播放模式之前保存场景?", "是", "否");
+            // // 在即将切换到播放模式时执行的代码
+            // bool shouldSaveScene = EditorUtility.DisplayDialog("保存 场景", "是否要在进入播放模式之前保存场景?", "是", "否");
 
-            if (shouldSaveScene)
-            {
-                EditorSceneManager.SaveOpenScenes();
-            }
+            // if (shouldSaveScene)
+            // {
+            //     EditorSceneManager.SaveOpenScenes();
+            // }
+            Debug.Log("进入播放模式");
         }
     }
 }
