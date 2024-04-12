@@ -30,7 +30,7 @@ public class MonsterSpawner : MonoBehaviour
     private int spawnMonsterIndex = 0;
     private int spawnMonsterCount = 0;
 
-    private void Awake()
+    private void Start()
     {
 
         waveTotalNum = levelSO.waveTotalNum;

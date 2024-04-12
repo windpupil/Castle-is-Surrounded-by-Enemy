@@ -10,7 +10,6 @@ public class Manager : MonoBehaviour
 {
     public static Manager Instance{get;private set;}
     [SerializeField]private CostUI costUI;
-
     private void Awake() {
         Instance = this;
     }
@@ -23,5 +22,10 @@ public class Manager : MonoBehaviour
     public CostUI GetCostUI()
     {
         return costUI;
+    }
+    public void DestroyBase()
+    {
+        Debug.Log("Game Over!");
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }

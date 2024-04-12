@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class Monster : Object
@@ -8,6 +9,8 @@ public class Monster : Object
     public MonsterSO monsterSO;
     [SerializeField] Image hpBar;
     private int hp;
+    protected GameObject target;
+    private float attackTime;
     private List<Vector3> WayPointsPosition;
     private int nextWayPointsIndex = 0;
     public int Hp
@@ -54,7 +57,32 @@ public class Monster : Object
     {
         hpBar.fillAmount = (float)hp / monsterSO.hp;
     }
-    protected void Move()
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Main Base"))
+        {
+            target = other.gameObject;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Main Base"))
+        {
+            target = null;
+        }
+    }
+    private void Update()
+    {
+        if(target == null)
+        {
+            Move();
+        }
+        else
+        {
+            Attack();
+        }
+    }
+    private void Move()
     {
         if (nextWayPointsIndex >= WayPointsPosition.Count)
         {
@@ -64,6 +92,17 @@ public class Monster : Object
         if (WayPointsPosition.Count > nextWayPointsIndex && Vector3.Distance(transform.position, WayPointsPosition[nextWayPointsIndex]) < 0.03f)
         {
             nextWayPointsIndex++;
+        }
+    }
+    private void Attack()
+    {
+        attackTime += Time.deltaTime;
+        if(attackTime > monsterSO.attackSpeed)
+        {
+            attackTime -= monsterSO.attackSpeed;
+            target.GetComponent<MainBase>().Hp -= monsterSO.attack;
+            Debug.Log(target);
+            //Ö÷³Ç¿ÛÑª£¨¹¥»÷ºóÒ¡£©
         }
     }
 }
