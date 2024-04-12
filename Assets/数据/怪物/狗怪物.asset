@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u72D7\u602A\u7269"
   m_EditorClassIdentifier: 
   hp: 20
-  attack: 0
+  attack: 2
   attackSpeed: 1
   addCost: 5
   speed: 1

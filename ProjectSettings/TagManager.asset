@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlacedPoint
   - Enemy
+  - Main Base
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Attack
+  - Hurt
   - 
   - 
   - 

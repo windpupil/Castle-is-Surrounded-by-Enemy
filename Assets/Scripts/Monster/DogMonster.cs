@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class DogMonster : Monster
 {
-    private void Update()
-    {
-        Move();
-    }
+
 }
