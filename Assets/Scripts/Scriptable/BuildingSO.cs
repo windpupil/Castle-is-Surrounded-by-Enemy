@@ -11,6 +11,7 @@ public class BuildingSO : ScriptableObject
     public int health;
     //输入攻击间隔的时间
     public float attackSpeed;
+    public float bleedingPerSecond;
     public bool isMultipleUsed;
     public GameObject bullet;
 }

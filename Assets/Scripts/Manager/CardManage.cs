@@ -13,7 +13,7 @@ public class CardManage : MonoBehaviour
     private List<Card> currentHandCard = new();  //当前对局的手牌
     private List<Card> currentLibraryCard = new();    //当前对局的牌库
     private List<Card> discardPile = new();  //弃牌堆
-    // [SerializeField] private DrawCardUI drawCardUI;
+    [SerializeField] private DrawCardsUI drawCardsUI;
     [SerializeField] private HandCardsUI handCardsUI;
     private void Awake() {
         Instance = this;
@@ -25,23 +25,25 @@ public class CardManage : MonoBehaviour
         {
             currentLibraryCard.AddRange(startingLibraryCard);
         }
+        UpdateCurrentLibraryCard();
         DrawCard();
     }
     public void DrawCard()
     {
         while(currentHandCard.Count < handCardMaxNum)
         {
-            if(currentLibraryCard.Count == 0)
+            currentHandCard.Add(currentLibraryCard[0]);
+            GameObject cardObject = Instantiate(currentLibraryCard[0].self, handCardsUI.transform);
+            cardObject.transform.SetParent(handCardsUI.transform);
+            currentLibraryCard.RemoveAt(0);
+            if (currentLibraryCard.Count == 0)
             {
                 // Debug.Log("牌库已空，洗牌");
                 currentLibraryCard.AddRange(discardPile);
                 discardPile.Clear();
+                UpdateCurrentLibraryCard();
             }
-            int index = Random.Range(0,currentLibraryCard.Count);
-            currentHandCard.Add(currentLibraryCard[index]);
-            GameObject cardObject = Instantiate(currentLibraryCard[index].self, handCardsUI.transform);
-            cardObject.transform.SetParent(handCardsUI.transform);
-            currentLibraryCard.RemoveAt(index);
+            drawCardsUI.ShowTopCard(currentLibraryCard[0]);
         }
     }
     private void OnDestroy() {
@@ -68,5 +70,16 @@ public class CardManage : MonoBehaviour
         }
         DrawCard();
         Destroy(card.gameObject);
+    }
+    private void UpdateCurrentLibraryCard()
+    {
+        //随机化牌库
+        for (int i = 0; i < currentLibraryCard.Count; i++)
+        {
+            int index = Random.Range(0,currentLibraryCard.Count);
+            Card temp = currentLibraryCard[i];
+            currentLibraryCard[i] = currentLibraryCard[index];
+            currentLibraryCard[index] = temp;
+        }
     }
 }
