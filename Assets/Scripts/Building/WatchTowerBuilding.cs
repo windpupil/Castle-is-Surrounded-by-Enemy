@@ -8,22 +8,25 @@ public class WatchTowerBuilding : Building
     private void Start()
     {
         attackTime = buildingSO.attackSpeed;
+        Hp = buildingSO.health;
     }
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.gameObject.CompareTag("Enemy"))
         {
             enemyList.Add(other.gameObject);
         }
     }
-    private void OnTriggerStay2D(Collider2D other) {
-        attackTime += Time.deltaTime;
+    private void OnTriggerStay2D(Collider2D other)
+    {
         if (attackTime >= buildingSO.attackSpeed)
         {
             attackTime = 0;
             Attack(enemyList[0]);
         }
     }
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerExit2D(Collider2D other)
+    {
         if (other.gameObject.CompareTag("Enemy"))
         {
             enemyList.Remove(other.gameObject);
@@ -34,5 +37,12 @@ public class WatchTowerBuilding : Building
         // Debug.Log("Attack");
         GameObject go = Instantiate(buildingSO.bullet, transform.position, Quaternion.identity);
         go.GetComponent<WatchTowerBullet>().SetTargetPos(target.transform.position);
+    }
+    private void Update()
+    {
+        attackTime += Time.deltaTime;
+        Hp -= buildingSO.bleedingPerSecond * Time.deltaTime;
+        Debug.Log(this.gameObject);
+        Debug.Log(GetPlacedPoint());
     }
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   buildingName: "\u54E8\u5854"
   buildingCost: 10
   attack: 5
-  health: 20
+  health: 10
   attackSpeed: 1
+  bleedingPerSecond: 2
   isMultipleUsed: 1
   bullet: {fileID: 6130882652188111072, guid: dd533fadb30f47f4d88361861acc02f5, type: 3}

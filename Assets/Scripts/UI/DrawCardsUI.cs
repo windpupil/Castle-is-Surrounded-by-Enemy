@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DrawCardsUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject nextCard;
+    public void ShowTopCard(Card card)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(nextCard.transform.childCount > 0)
+        {
+            foreach (Transform child in nextCard.transform)
+                Destroy(child.gameObject);
+        }
+        GameObject cardObject = Instantiate(card.self, transform);
+        cardObject.GetComponent<UnityEngine.UI.Button>().enabled = false;
+        cardObject.transform.SetParent(nextCard.transform);
+        //设置cardObject的位置在nextCard的中心
+        cardObject.transform.localPosition = Vector3.zero;
     }
 }

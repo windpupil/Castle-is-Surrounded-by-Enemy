@@ -53,6 +53,11 @@ public class WatchTower : Card
     {
         GameObject go = Instantiate(cardSO.gameObject, target.position, Quaternion.identity);
         go.transform.SetParent(target.parent);
+
+        go.GetComponent<Building>().SetPlacedPoint(target.gameObject);
+        Debug.Log(go);
+        Debug.Log(go.GetComponent<Building>().GetPlacedPoint());
+
         PlacedPoint.Instance.RemoveBlock(target.gameObject);
         PlacedPoint.Instance.SetActiveFalse();
         Manager.Instance.GetCostUI().SetCost(-cardSO.cost);

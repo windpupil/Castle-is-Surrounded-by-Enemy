@@ -38,6 +38,11 @@ public class PlacedPoint : MonoBehaviour
         placedBlocks.Remove(go);
         Destroy(go);
     }
+    //将物体添加到placedBlocks列表中
+    public void AddBlock(GameObject go)
+    {
+        placedBlocks.Add(go);
+    }
     private void OnDestroy() {
         Instance = null;
     }
