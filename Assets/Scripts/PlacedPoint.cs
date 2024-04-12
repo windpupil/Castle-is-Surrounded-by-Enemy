@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlacedPoint : MonoBehaviour
 {
-    public static PlacedPoint Instance{get;private set;}
+    public static PlacedPoint Instance { get; private set; }
     private List<GameObject> placedBlocks = new List<GameObject>();
-    private void Awake() {
+    private List<bool> isPlaced = new();
+    private bool isPlacing = false;
+    private void Awake()
+    {
         Instance = this;
     }
     void Start()
@@ -16,6 +19,10 @@ public class PlacedPoint : MonoBehaviour
         {
             placedBlocks.Add(transform.GetChild(i).gameObject);
         }
+        for (int i = 0; i < placedBlocks.Count; i++)
+        {
+            isPlaced.Add(false);
+        }
         SetActiveFalse();
     }
     public void SetActiveFalse()
@@ -24,30 +31,52 @@ public class PlacedPoint : MonoBehaviour
         {
             item.SetActive(false);
         }
+        isPlacing = false;
     }
     public void SetActiveTrue()
     {
         foreach (var item in placedBlocks)
         {
+            if (isPlaced[placedBlocks.IndexOf(item)])
+            {
+                continue;
+            }
             item.SetActive(true);
         }
+        isPlacing = true;
     }
-    //将物体从placedBlocks列表中移除
-    public void RemoveBlock(GameObject go)
+    private void OnDestroy()
     {
-        placedBlocks.Remove(go);
-        Destroy(go);
-    }
-    //将物体添加到placedBlocks列表中
-    public void AddBlock(GameObject go)
-    {
-        placedBlocks.Add(go);
-    }
-    private void OnDestroy() {
         Instance = null;
     }
     public List<GameObject> GetPlacedBlocks()
     {
         return placedBlocks;
+    }
+    public void SetIsPlacedTrue(GameObject go)
+    {
+        if (placedBlocks.Contains(go))
+        {
+            isPlaced[placedBlocks.IndexOf(go)] = true;
+        }
+        else
+        {
+            Debug.Log("placedBlocks列表中不包含该物体");
+        }
+    }
+    public void SetIsPlacedFalse(GameObject go)
+    {
+        if (placedBlocks.Contains(go))
+        {
+            isPlaced[placedBlocks.IndexOf(go)] = false;
+            if (isPlacing)
+            {
+                go.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.Log("placedBlocks列表中不包含该物体");
+        }
     }
 }

@@ -8,7 +8,7 @@ public class CostUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI costText;
 
-    // private int costMax = 100;
+    private const int COSTMAX = 100;
     private float cost=100;
     private float Cost
     {
@@ -22,10 +22,10 @@ public class CostUI : MonoBehaviour
             {
                 cost = 0;
             }
-            // else if (value > costMax)
-            // {
-            //     cost = costMax;
-            // }
+            else if (value > COSTMAX)
+            {
+                cost = COSTMAX;
+            }
             else
             {
                 cost = value;

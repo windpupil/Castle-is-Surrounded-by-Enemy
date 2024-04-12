@@ -42,7 +42,5 @@ public class WatchTowerBuilding : Building
     {
         attackTime += Time.deltaTime;
         Hp -= buildingSO.bleedingPerSecond * Time.deltaTime;
-        Debug.Log(this.gameObject);
-        Debug.Log(GetPlacedPoint());
     }
 }

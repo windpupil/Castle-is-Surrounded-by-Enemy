@@ -5,7 +5,7 @@ public class Building : CardsExamples
 {
     public BuildingSO buildingSO;
     public GameObject bullet;
-    protected GameObject placedPoint = null;
+    private GameObject placedPoint;
     [SerializeField] private Image hpBar;
     private float hp;
     public float Hp
@@ -15,9 +15,6 @@ public class Building : CardsExamples
         {
             if(value <= 0)
             {
-                GameObject go = Instantiate(placedPoint, transform.position, Quaternion.identity);
-                placedPoint.transform.SetParent(PlacedPoint.Instance.transform);
-                PlacedPoint.Instance.AddBlock(go);
                 Destroy(gameObject);
             }
             else if(value > buildingSO.health)
@@ -36,18 +33,15 @@ public class Building : CardsExamples
         hpBar.fillAmount = Hp / buildingSO.health;
     }
     private void OnDestroy() {
-        // Debug.Log(placedPoint);
-        // GameObject go = Instantiate(placedPoint, transform.position, Quaternion.identity);
-        // placedPoint.transform.SetParent(PlacedPoint.Instance.transform);
-        // PlacedPoint.Instance.AddBlock(go);
-    }
-    public void SetPlacedPoint(GameObject go)
-    {
-        placedPoint = go;
+        if(PlacedPoint.Instance!=null)
+        PlacedPoint.Instance.SetIsPlacedFalse(placedPoint);
     }
     public GameObject GetPlacedPoint()
     {
         return placedPoint;
     }
-
+    public void SetPlacedPoint(GameObject go)
+    {
+        placedPoint = go;
+    }
 }
