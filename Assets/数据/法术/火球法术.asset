@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d109c473b97683340b5291a876596bf4, type: 3}
+  m_Name: "\u706B\u7403\u6CD5\u672F"
+  m_EditorClassIdentifier: 
+  magicName: "\u706B\u7403"
+  lastTime: 3
+  attackSpeed: 100
+  bullet: {fileID: 6130882652188111072, guid: 675de74a126cd574c8b132328f0e1d41, type: 3}

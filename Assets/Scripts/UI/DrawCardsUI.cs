@@ -12,7 +12,7 @@ public class DrawCardsUI : MonoBehaviour
             foreach (Transform child in nextCard.transform)
                 Destroy(child.gameObject);
         }
-        GameObject cardObject = Instantiate(card.self, transform);
+        GameObject cardObject = Instantiate(card.gameObject, transform);
         cardObject.GetComponent<UnityEngine.UI.Button>().enabled = false;
         cardObject.transform.SetParent(nextCard.transform);
         //设置cardObject的位置在nextCard的中心

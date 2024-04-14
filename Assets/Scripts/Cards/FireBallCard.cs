@@ -1,21 +1,18 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class WatchTower : Card
+public class FireBallCard : Card
 {
     public override void Use()
     {
-        if (PlacedPoint.Instance.GetPlacedBlocks().Count == 0)
-        {
-            Debug.Log("没有可放置的位置");
-            return;
-        }
-        if(Manager.Instance.GetCostUI().GetCost()<cardSO.cost)
+        if (Manager.Instance.GetCostUI().GetCost() < cardSO.cost)
         {
             Debug.Log("能量不足");
             return;
         }
-        PlacedPoint.Instance.SetActiveTrueByIsPlaced();
+        PlacedPoint.Instance.SetActiveTrue();
+        Road.Instance.SetRoadSelectedTrue();
         StartCoroutine(GetNextClickPos());
     }
     //协程获取下次鼠标点击的位置
@@ -35,7 +32,7 @@ public class WatchTower : Card
                 RaycastHit2D[] hit = Physics2D.RaycastAll(screenPos, Vector2.zero);
                 foreach (RaycastHit2D h in hit)
                 {
-                    if (h.collider.CompareTag("PlacedPoint"))
+                    if (h.collider.CompareTag("PlacedPoint")||h.collider.CompareTag("Road"))
                     {
                         // Debug.Log("有效点击");
                         UseAction(h.transform);
@@ -45,6 +42,7 @@ public class WatchTower : Card
                 }
                 // Debug.Log("无效点击");
                 PlacedPoint.Instance.SetActiveFalse();
+                Road.Instance.SetRoadSelectedFalse();
             }
             yield return null;
         }
@@ -53,11 +51,8 @@ public class WatchTower : Card
     {
         GameObject go = Instantiate(cardSO.gameObject, target.position, Quaternion.identity);
         go.transform.SetParent(target.parent);
-
-        go.GetComponent<Building>().SetPlacedPoint(target.gameObject);
-
-        PlacedPoint.Instance.SetIsPlacedTrue(target.gameObject);
         PlacedPoint.Instance.SetActiveFalse();
+        Road.Instance.SetRoadSelectedFalse();
         Manager.Instance.GetCostUI().SetCost(-cardSO.cost);
         CardManage.Instance.RemoveCard(this);
     }

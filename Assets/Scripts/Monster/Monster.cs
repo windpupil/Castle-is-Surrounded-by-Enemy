@@ -46,6 +46,23 @@ public class Monster : Object
     {
         this.Hp += hp;
     }
+    public void SetHpContinuously(int hp, float lastTime,float hurtRate)
+    {
+        StartCoroutine(SetHpContinuouslyCoroutine(hp, lastTime,hurtRate));
+    }
+
+    private IEnumerator SetHpContinuouslyCoroutine(int hp, float lastTime,float hurtRate)
+    {
+        float t = 0;
+        while(t < lastTime)
+        {
+            // Debug.Log("hurt"+this.gameObject);
+            Sethp(hp);
+            yield return new WaitForSeconds(hurtRate);
+            t += hurtRate;
+        }
+    }
+
     private void ReturnCostOnDestroy()
     {
         if(Manager.Instance != null)
@@ -101,8 +118,8 @@ public class Monster : Object
         {
             attackTime -= monsterSO.attackSpeed;
             target.GetComponent<MainBase>().Hp -= monsterSO.attack;
-            Debug.Log(target);
-            //Ö÷³Ç¿ÛÑª£¨¹¥»÷ºóÒ¡£©
+            // Debug.Log(target);
+            //ï¿½ï¿½ï¿½Ç¿ï¿½Ñªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¡ï¿½ï¿½
         }
     }
 }

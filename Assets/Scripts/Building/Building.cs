@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class Building : CardsExamples
 {
     public BuildingSO buildingSO;
-    public GameObject bullet;
     private GameObject placedPoint;
     [SerializeField] private Image hpBar;
     private float hp;

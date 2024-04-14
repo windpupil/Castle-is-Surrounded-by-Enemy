@@ -33,7 +33,7 @@ public class CardManage : MonoBehaviour
         while(currentHandCard.Count < handCardMaxNum)
         {
             currentHandCard.Add(currentLibraryCard[0]);
-            GameObject cardObject = Instantiate(currentLibraryCard[0].self, handCardsUI.transform);
+            GameObject cardObject = Instantiate(currentLibraryCard[0].cardSO.cardObject, handCardsUI.transform);
             cardObject.transform.SetParent(handCardsUI.transform);
             currentLibraryCard.RemoveAt(0);
             if (currentLibraryCard.Count == 0)

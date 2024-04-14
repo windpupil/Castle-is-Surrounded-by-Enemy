@@ -33,7 +33,7 @@ public class PlacedPoint : MonoBehaviour
         }
         isPlacing = false;
     }
-    public void SetActiveTrue()
+    public void SetActiveTrueByIsPlaced()
     {
         foreach (var item in placedBlocks)
         {
@@ -41,6 +41,15 @@ public class PlacedPoint : MonoBehaviour
             {
                 continue;
             }
+            item.SetActive(true);
+        }
+        isPlacing = true;
+    }
+    public void SetActiveTrue()
+    {
+        // Debug.Log("SetActiveTrue");
+        foreach (var item in placedBlocks)
+        {
             item.SetActive(true);
         }
         isPlacing = true;

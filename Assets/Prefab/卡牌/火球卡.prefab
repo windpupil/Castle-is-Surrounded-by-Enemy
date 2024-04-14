@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4869013899935875811}
   - component: {fileID: 218797868782607738}
   - component: {fileID: 5518202676378436211}
-  - component: {fileID: 8596091696308769236}
+  - component: {fileID: 232216937545713421}
   - component: {fileID: 7231971155983115782}
   m_Layer: 5
-  m_Name: "\u54E8\u5854\u5361"
+  m_Name: "\u706B\u7403\u5361"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8596091696308769236
+--- !u!114 &232216937545713421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,11 +88,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3638667036186494055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebbee3873599ec44bb574a69cfa139ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 03b44754d0fbee64b9f5e7169ced9acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardSO: {fileID: 11400000, guid: 79f52de53ad69154eb5d93935193e05c, type: 2}
-  self: {fileID: 3638667036186494055}
+  cardSO: {fileID: 11400000, guid: 1ac479905134bda42b926caabaea90b3, type: 2}
 --- !u!114 &7231971155983115782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +136,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8596091696308769236}
-        m_TargetAssemblyTypeName: WatchTower, Assembly-CSharp
+      - m_Target: {fileID: 232216937545713421}
+        m_TargetAssemblyTypeName: FireBallCard, Assembly-CSharp
         m_MethodName: Use
         m_Mode: 1
         m_Arguments:
@@ -214,7 +213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "10\u8D39\u54E8\u5854"
+  m_text: "6\u8D39\u7684\u706B\u7403"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b035a9e0302865046a0f8d9608d5f8d8, type: 2}
   m_sharedMaterial: {fileID: -8767601115116679092, guid: b035a9e0302865046a0f8d9608d5f8d8, type: 2}

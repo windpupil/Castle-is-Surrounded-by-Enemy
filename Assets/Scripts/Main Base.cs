@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 public class MainBase : MonoBehaviour
 {
-    private static float hp = 50;
+    private static float hp = 100;
     private static float Max_hp = 100;
     [SerializeField] Image hpBar;
     public float Hp
@@ -19,9 +19,6 @@ public class MainBase : MonoBehaviour
             {
                 Manager.Instance.DestroyBase();
             }
-
-            
-            
         }
     }
     private void Start()
@@ -30,7 +27,7 @@ public class MainBase : MonoBehaviour
     }
     private void UpdateHpBar()
     {
-        Debug.Log(Hp);
+        // Debug.Log(Hp);
         hpBar.fillAmount = hp / Max_hp;
     }
 }

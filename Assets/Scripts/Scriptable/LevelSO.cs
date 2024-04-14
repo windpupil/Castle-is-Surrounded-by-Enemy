@@ -16,7 +16,7 @@ public class KeyValueData
     }
 }
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "LevelSO", menuName = "SO/LevelSO", order = 1)]
 public class LevelSO : ScriptableObject
 {
     public List<GameObject> monsters;

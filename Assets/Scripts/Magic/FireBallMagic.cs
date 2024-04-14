@@ -1,14 +1,16 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WatchTowerBuilding : Building
+public class FireBallMagic : Magic
 {
     private float attackTime;
+    private float existenceTime;
     private List<GameObject> enemyList = new();
+
     private void Start()
     {
-        attackTime = buildingSO.attackSpeed;
-        Hp = buildingSO.health;
+        attackTime = mageicSO.attackSpeed;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,11 +21,13 @@ public class WatchTowerBuilding : Building
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (attackTime >= buildingSO.attackSpeed)
+        if (attackTime >= mageicSO.attackSpeed&&other.gameObject.CompareTag("Enemy"))
         {
             attackTime = 0;
-            if (enemyList.Count > 0)
-            Attack(enemyList[0]);
+            foreach (var enemy in enemyList)
+            {
+                Attack(enemy);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -36,12 +40,16 @@ public class WatchTowerBuilding : Building
     private void Attack(GameObject target)
     {
         // Debug.Log("Attack");
-        GameObject go = Instantiate(buildingSO.bullet, transform.position, Quaternion.identity);
-        go.GetComponent<WatchTowerBullet>().SetTargetPos(target.transform.position);
+        GameObject go = Instantiate(mageicSO.bullet, transform.position, Quaternion.identity);
+        go.GetComponent<Bullet>().SetTargetPos(target.transform.position);
     }
     private void Update()
     {
         attackTime += Time.deltaTime;
-        Hp -= buildingSO.bleedingPerSecond * Time.deltaTime;
+        existenceTime += Time.deltaTime;
+        if (existenceTime >= mageicSO.lastTime)
+        {
+            Destroy(gameObject);
+        }
     }
 }
