@@ -17,7 +17,7 @@ public class MainBase : MonoBehaviour
             UpdateHpBar();
             if (value <= 0)
             {
-                Manager.Instance.DestroyBase();
+                FightManager.Instance.DestroyBase();
             }
         }
     }

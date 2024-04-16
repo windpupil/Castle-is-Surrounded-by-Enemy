@@ -6,7 +6,7 @@ public class FireBallCard : Card
 {
     public override void Use()
     {
-        if (Manager.Instance.GetCostUI().GetCost() < cardSO.cost)
+        if (FightManager.Instance.GetCostUI().GetCost() < cardSO.cost)
         {
             Debug.Log("能量不足");
             return;
@@ -32,7 +32,7 @@ public class FireBallCard : Card
                 RaycastHit2D[] hit = Physics2D.RaycastAll(screenPos, Vector2.zero);
                 foreach (RaycastHit2D h in hit)
                 {
-                    if (h.collider.CompareTag("PlacedPoint")||h.collider.CompareTag("Road"))
+                    if (h.collider.CompareTag("PlacedPoint") || h.collider.CompareTag("Road"))
                     {
                         // Debug.Log("有效点击");
                         UseAction(h.transform);
@@ -53,7 +53,7 @@ public class FireBallCard : Card
         go.transform.SetParent(target.parent);
         PlacedPoint.Instance.SetActiveFalse();
         Road.Instance.SetRoadSelectedFalse();
-        Manager.Instance.GetCostUI().SetCost(-cardSO.cost);
+        FightManager.Instance.GetCostUI().SetCost(-cardSO.cost);
         CardManage.Instance.RemoveCard(this);
     }
 }

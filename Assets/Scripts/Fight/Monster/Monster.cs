@@ -18,11 +18,11 @@ public class Monster : Object
         get { return hp; }
         set
         {
-            if(value <= 0)
+            if (value <= 0)
             {
                 Destroy(gameObject);
             }
-            else if(value > monsterSO.hp)
+            else if (value > monsterSO.hp)
             {
                 hp = monsterSO.hp;
             }
@@ -46,15 +46,15 @@ public class Monster : Object
     {
         this.Hp += hp;
     }
-    public void SetHpContinuously(int hp, float lastTime,float hurtRate)
+    public void SetHpContinuously(int hp, float lastTime, float hurtRate)
     {
-        StartCoroutine(SetHpContinuouslyCoroutine(hp, lastTime,hurtRate));
+        StartCoroutine(SetHpContinuouslyCoroutine(hp, lastTime, hurtRate));
     }
 
-    private IEnumerator SetHpContinuouslyCoroutine(int hp, float lastTime,float hurtRate)
+    private IEnumerator SetHpContinuouslyCoroutine(int hp, float lastTime, float hurtRate)
     {
         float t = 0;
-        while(t < lastTime)
+        while (t < lastTime)
         {
             // Debug.Log("hurt"+this.gameObject);
             Sethp(hp);
@@ -65,9 +65,9 @@ public class Monster : Object
 
     private void ReturnCostOnDestroy()
     {
-        if(Manager.Instance != null)
+        if (FightManager.Instance != null)
         {
-            Manager.Instance.GetCostUI().SetCost(monsterSO.addCost);
+            FightManager.Instance.GetCostUI().SetCost(monsterSO.addCost);
         }
     }
     private void UpdateHpBar()
@@ -90,7 +90,7 @@ public class Monster : Object
     }
     private void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             Move();
         }
@@ -114,7 +114,7 @@ public class Monster : Object
     private void Attack()
     {
         attackTime += Time.deltaTime;
-        if(attackTime > monsterSO.attackSpeed)
+        if (attackTime > monsterSO.attackSpeed)
         {
             attackTime -= monsterSO.attackSpeed;
             target.GetComponent<MainBase>().Hp -= monsterSO.attack;
