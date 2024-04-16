@@ -10,7 +10,7 @@ public class WatchTower : Card
             Debug.Log("没有可放置的位置");
             return;
         }
-        if(Manager.Instance.GetCostUI().GetCost()<cardSO.cost)
+        if (FightManager.Instance.GetCostUI().GetCost() < cardSO.cost)
         {
             Debug.Log("能量不足");
             return;
@@ -58,7 +58,7 @@ public class WatchTower : Card
 
         PlacedPoint.Instance.SetIsPlacedTrue(target.gameObject);
         PlacedPoint.Instance.SetActiveFalse();
-        Manager.Instance.GetCostUI().SetCost(-cardSO.cost);
+        FightManager.Instance.GetCostUI().SetCost(-cardSO.cost);
         CardManage.Instance.RemoveCard(this);
     }
 }
