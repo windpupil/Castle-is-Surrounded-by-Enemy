@@ -10,12 +10,27 @@ public class RoadMake : MonoBehaviour
     private Vector3 endPoint= new Vector3(0f, 0f, 0f);
 
     private int road_sum=0;
-    private Vector3[] road_xy;
+    // private Vector3[] road_xy;
+    private List<Vector3> road_xy;
 
     // Start is called before the first frame update
     void Start()
     {
         GenerateRoad_all();
+    }
+
+    public List<Vector3> Get_road_xy(){
+        if (road_xy != null && road_xy.Count > 0)
+        {
+            // road_xy 不为空且包含至少一个元素
+            return road_xy;
+        }
+        else
+        {
+            // road_xy 为空或者不包含任何元素
+            Debug.Log("road_xy is empty!");
+            return null;
+        }
     }
     
     void  GetRoadxy(){
@@ -43,13 +58,16 @@ public class RoadMake : MonoBehaviour
                     // 使用空格分割文件内容，并遍历分割后的字符串数组
                     string[] roads_str = line_content.Split(' '); // 假设以空格分隔数字
                     // Debug.Log("roads_str:"+roads_str[0]);
-                    road_xy=new Vector3[road_sum];
+                    // road_xy=new Vector3[road_sum];
+                    road_xy=new List<Vector3>();
 
                     for(int i=0;i<road_sum;i++){
                         float tempx=float.Parse(roads_str[i*2]);
                         float tempy=float.Parse(roads_str[i*2+1]);
                         // Debug.Log("x:"+tempx+",y:"+tempy);
-                        road_xy[i]=new Vector3(tempx,tempy,0f);
+                        Vector3 tempxy=new Vector3(tempx,tempy,0f);
+                        // road_xy[i]=tempxy;
+                        road_xy.Add(tempxy);
                         Debug.Log("roadxy["+i+"]:"+road_xy[i]);
                     }
                     // road_sum=0;
