@@ -10,7 +10,7 @@ public class FireBallMagic : Magic
 
     private void Start()
     {
-        attackTime = mageicSO.attackSpeed;
+        attackTime = MagicSO.attackSpeed;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,7 +21,7 @@ public class FireBallMagic : Magic
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (attackTime >= mageicSO.attackSpeed&&other.gameObject.CompareTag("Enemy"))
+        if (attackTime >= MagicSO.attackSpeed&&other.gameObject.CompareTag("Enemy"))
         {
             attackTime = 0;
             foreach (var enemy in enemyList)
@@ -40,14 +40,14 @@ public class FireBallMagic : Magic
     private void Attack(GameObject target)
     {
         // Debug.Log("Attack");
-        GameObject go = Instantiate(mageicSO.bullet, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(MagicSO.bullet, transform.position, Quaternion.identity);
         go.GetComponent<Bullet>().SetTargetPos(target.transform.position);
     }
     private void Update()
     {
         attackTime += Time.deltaTime;
         existenceTime += Time.deltaTime;
-        if (existenceTime >= mageicSO.lastTime)
+        if (existenceTime >= MagicSO.lastTime)
         {
             Destroy(gameObject);
         }

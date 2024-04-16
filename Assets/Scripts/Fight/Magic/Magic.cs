@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Magic : CardsExamples
 {
-    public MageicSO mageicSO;
+    public MagicSO MagicSO;
 }

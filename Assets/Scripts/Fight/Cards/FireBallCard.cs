@@ -54,6 +54,6 @@ public class FireBallCard : Card
         PlacedPoint.Instance.SetActiveFalse();
         Road.Instance.SetRoadSelectedFalse();
         FightManager.Instance.GetCostUI().SetCost(-cardSO.cost);
-        CardManage.Instance.RemoveCard(this);
+        CardManager.Instance.RemoveCard(this);
     }
 }
