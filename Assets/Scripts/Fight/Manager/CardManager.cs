@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardManage : MonoBehaviour
+public class CardManager : MonoBehaviour
 {
-    public static CardManage Instance{get;private set;}
+    public static CardManager Instance{get;private set;}
     private int handCardMaxNum = 5;
     //这里以后可以尝试优化，将其设置为只读，无法修改，可能可行的方法新写一个类+构造函数，或者用readonly
     [SerializeField]private List<Card> startingLibraryCard = new List<Card>();//初始牌库

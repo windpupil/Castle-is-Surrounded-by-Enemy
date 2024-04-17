@@ -8,12 +8,12 @@ public static class SceneController
 {
     // 场景列表，这里填写的都是你已经存在的scene 的场景名
     public static ArrayList sceneNames = new ArrayList() {
-        "加载界面",
-        "第一关",
-        "开始界面",
+        "Loading",
+        "Main",
+        "Fight",
     };
     // 自定义loading名，在这里使用它是因为别的需求，如果你的需求比较简单可以直接写死
-    public static string LoadingSceneName = "加载界面";
+    public static string LoadingSceneName = "Loading";
     // 定义一个回调事件  当完成任何场景切换时触发
     public static Action AfterGoToScene;
 
