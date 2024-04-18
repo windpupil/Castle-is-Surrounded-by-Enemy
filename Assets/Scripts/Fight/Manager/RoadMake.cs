@@ -6,6 +6,7 @@ using System.IO;
 public class RoadMake : MonoBehaviour
 {
     public GameObject roadCell;
+    public GameObject mainBase;
     private Vector3 startPoint= new Vector3(0f, 0f, 0f);
     private Vector3 endPoint= new Vector3(0f, 0f, 0f);
 
@@ -95,32 +96,33 @@ public class RoadMake : MonoBehaviour
  
         // 实例化道路预制体
         // GameObject road = Instantiate(roadCell); 
-        GameObject road = Instantiate(roadCell, centerPoint, Quaternion.identity); 
-        
-        // 调整道路大小
-        // if(startPoint.x!=endPoint.x){
-        //     road.transform.localScale = new Vector3(dist, 1f, 1f);
-        // }
-        // else if(startPoint.y!=endPoint.y){
-        //     road.transform.localScale = new Vector3(1f, dist, 1f);
-        // }
-        
-        Vector3 N_vec3=new Vector3(1f,1f,1f);
-        road.transform.localScale = (startPoint - endPoint)+N_vec3;
+        GameObject road = Instantiate(roadCell, centerPoint, Quaternion.identity);
 
-        // GameObject road_end_point = Instantiate(roadCell, endPoint, Quaternion.identity);  
+         //调整道路大小
+         if(startPoint.x!=endPoint.x){
+             road.transform.localScale = new Vector3(dist, 1f, 1f);
+         }
+         else if(startPoint.y!=endPoint.y){
+            road.transform.localScale = new Vector3(1f, dist, 1f);
+         }
+
+        //Vector3 N_vec3 =new Vector3(1f,1f,1f);
+        //road.transform.localScale = (startPoint - endPoint)+N_vec3;
+
+         GameObject road_end_point = Instantiate(roadCell, endPoint, Quaternion.identity);  
     }
     void GenerateRoad_all()
     {
         GetRoadxy();
 
         startPoint=road_xy[0];
-        // GameObject road_start_point = Instantiate(roadCell, startPoint, Quaternion.identity);  
+         GameObject road_start_point = Instantiate(roadCell, startPoint, Quaternion.identity);  
         for(int i=1;i<road_sum;i++){
             endPoint=road_xy[i];
             GenerateRoad_piece();
             startPoint=endPoint;
         }
+        Instantiate(mainBase, road_xy[road_xy.Count-1], Quaternion.identity);
 
         // Debug.Log("ec");
     }
