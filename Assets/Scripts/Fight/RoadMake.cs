@@ -5,8 +5,10 @@ using System.IO;
 
 public class RoadMake : MonoBehaviour
 {
-    public GameObject roadCell;
-    public GameObject mainBase;
+    [SerializeField] private GameObject roadCell;
+    [SerializeField] private GameObject mainBase;
+    [SerializeField] private GameObject placedBlock;
+    [SerializeField] private GameObject placedBlockParent;
     private Vector3 startPoint= new Vector3(0f, 0f, 0f);
     private Vector3 endPoint= new Vector3(0f, 0f, 0f);
 
@@ -14,7 +16,6 @@ public class RoadMake : MonoBehaviour
     // private Vector3[] road_xy;
     private List<Vector3> road_xy;
 
-    // Start is called before the first frame update
     void Start()
     {
         GenerateRoad_all();
@@ -33,7 +34,6 @@ public class RoadMake : MonoBehaviour
             return null;
         }
     }
-    
     void  GetRoadxy(){
         string filePath = Application.dataPath + "/Data/map/roadxy/roadxy1.txt";
 
@@ -87,51 +87,52 @@ public class RoadMake : MonoBehaviour
 
     void GenerateRoad_piece(){
         // 计算道路长度
-        float dist = Vector3.Distance(startPoint, endPoint);      
+        float dist = Vector3.Distance(startPoint, endPoint);
         // 计算道路中心点
         Vector3 centerPoint = (startPoint + endPoint)/2;
 
         // 计算道路旋转角度
-        // Quaternion rotation = Quaternion.LookRotation(endPoint - startPoint); 
- 
+        // Quaternion rotation = Quaternion.LookRotation(endPoint - startPoint);
+
         // 实例化道路预制体
-        // GameObject road = Instantiate(roadCell); 
         GameObject road = Instantiate(roadCell, centerPoint, Quaternion.identity);
 
          //调整道路大小
-         if(startPoint.x!=endPoint.x){
-             road.transform.localScale = new Vector3(dist, 1f, 1f);
+        if(startPoint.x!=endPoint.x){
+            road.transform.localScale = new Vector3(dist, 1f, 1f);
          }
-         else if(startPoint.y!=endPoint.y){
+        else if(startPoint.y!=endPoint.y){
             road.transform.localScale = new Vector3(1f, dist, 1f);
-         }
+        }
 
         //Vector3 N_vec3 =new Vector3(1f,1f,1f);
         //road.transform.localScale = (startPoint - endPoint)+N_vec3;
 
-         GameObject road_end_point = Instantiate(roadCell, endPoint, Quaternion.identity);  
+        Instantiate(roadCell, endPoint, Quaternion.identity);
     }
     void GenerateRoad_all()
     {
         GetRoadxy();
+        //在所有非道路位置生成placedBlock
+        for(int i=-1*Global.MAXROW;i<=Global.MAXROW;i++){
+            for(int j=-1*Global.MAXCOL;j<=Global.MAXCOL;j++){
+                Vector3 temp=new Vector3(j,i,0f);
+                if(!road_xy.Contains(temp)){
+                    // Debug.Log("placedBlock:"+temp);
+                    GameObject gameObject= Instantiate(placedBlock, temp, Quaternion.identity);
+                    gameObject.transform.SetParent(placedBlockParent.transform);
+                }
+            }
+        }
 
-        startPoint=road_xy[0];
-         GameObject road_start_point = Instantiate(roadCell, startPoint, Quaternion.identity);  
+        startPoint = road_xy[0];
+        Instantiate(roadCell, startPoint, Quaternion.identity);
         for(int i=1;i<road_sum;i++){
             endPoint=road_xy[i];
             GenerateRoad_piece();
             startPoint=endPoint;
         }
         Instantiate(mainBase, road_xy[road_xy.Count-1], Quaternion.identity);
-
         // Debug.Log("ec");
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
