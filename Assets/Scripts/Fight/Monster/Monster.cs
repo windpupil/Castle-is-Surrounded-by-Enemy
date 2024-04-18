@@ -36,11 +36,15 @@ public class Monster : Object
     private void Start()
     {
         Hp = monsterSO.hp;
-        WayPointsPosition = WayPoints.Instance.WayPointsPosition;
+        //WayPointsPosition = WayPoints.Instance.WayPointsPosition;
     }
     private void OnDestroy()
     {
         ReturnCostOnDestroy();
+    }
+    public void SetWayPoints(List<Vector3> wayPoints)
+    {
+        WayPointsPosition = wayPoints;
     }
     public void Sethp(int hp)
     {

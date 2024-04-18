@@ -6,6 +6,7 @@ using System.IO;
 public class RoadMake : MonoBehaviour
 {
     public GameObject roadCell;
+    public GameObject mainBase;
     private Vector3 startPoint= new Vector3(0f, 0f, 0f);
     private Vector3 endPoint= new Vector3(0f, 0f, 0f);
 
@@ -121,6 +122,7 @@ public class RoadMake : MonoBehaviour
             GenerateRoad_piece();
             startPoint=endPoint;
         }
+        Instantiate(mainBase, road_xy[road_xy.Count-1], Quaternion.identity);
 
         // Debug.Log("ec");
     }

@@ -2816,6 +2816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roadCell: {fileID: 4998243316123423236, guid: 2dfb8a207ff0678489fe88a316170f66, type: 3}
+  mainBase: {fileID: 2534900588768735948, guid: 9c98b54adcfa654438888a5d9bd4331c, type: 3}
 --- !u!1001 &817735518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2923,7 +2924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSO: {fileID: 11400000, guid: e4c0876e23c90b94f9ea26d46c55dd60, type: 2}
-  start: {fileID: 2503237865595128689}
+  roadMake: {fileID: 796839545}
 --- !u!1 &920280726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,7 +3547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1167603603
 Transform:
   m_ObjectHideFlags: 0
@@ -4758,7 +4759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1493297091
 Transform:
   m_ObjectHideFlags: 0
@@ -8330,11 +8331,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140666067}
   m_CullTransparentMesh: 1
---- !u!1 &2503237865595128689 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5344733188834520841, guid: fcc6d77b75faae440a9b88ee21d0911d, type: 3}
-  m_PrefabInstance: {fileID: 8899932827299941800}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5488222585190276933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8346,6 +8342,10 @@ PrefabInstance:
     - target: {fileID: 2534900588768735948, guid: 9c98b54adcfa654438888a5d9bd4331c, type: 3}
       propertyPath: m_Name
       value: "\u4E3B\u57CE"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534900588768735948, guid: 9c98b54adcfa654438888a5d9bd4331c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3630282432411982685, guid: 9c98b54adcfa654438888a5d9bd4331c, type: 3}
       propertyPath: m_Pivot.x

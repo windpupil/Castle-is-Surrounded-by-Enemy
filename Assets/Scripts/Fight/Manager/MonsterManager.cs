@@ -10,8 +10,8 @@ public class MonsterSpawner : MonoBehaviour
 {
 
     public LevelSO levelSO;
-    public GameObject start;
-
+    //public GameObject start;
+    [SerializeField]private RoadMake roadMake;
     //总波数
     private int waveTotalNum;
     //当前波数
@@ -21,6 +21,7 @@ public class MonsterSpawner : MonoBehaviour
     //每波怪数量
     private List<int> MonstersPerWave_MonsterID;
     private List<int> MonstersPerWave_MonsterNum;
+    private List<Vector3> WayPointsPosition;
 
     //下波出怪倒数
     private int nextWaveCountDown = 0;
@@ -37,12 +38,14 @@ public class MonsterSpawner : MonoBehaviour
         waveInterval = levelSO.waveInterval;
         MonstersPerWave_MonsterID = levelSO.MonstersPerWave_MonsterID;
         MonstersPerWave_MonsterNum = levelSO.MonstersPerWave_MonsterNum;
-    }
+        WayPointsPosition = roadMake.Get_road_xy();
+}
 
 
     //后续可拓展：在start物体上显示下一波怪物生成倒计时nextWaveCountDown
     private void Update()
     {
+        
         if (waveCount >= waveTotalNum)
         {
             return;
@@ -59,7 +62,8 @@ public class MonsterSpawner : MonoBehaviour
                     //通过ID找到怪物，生成
                     int monsterIndex = MonstersPerWave_MonsterID[waveCount * Global.Max_SpawnMonsterIndex + spawnMonsterIndex];
                     Debug.Log(monsterIndex);
-                    GameObject generatedMonster = Instantiate(levelSO.monsters[monsterIndex], start.transform.position, Quaternion.identity);
+                    GameObject generatedMonster = Instantiate(levelSO.monsters[monsterIndex], WayPointsPosition[0], Quaternion.identity);
+                    generatedMonster.GetComponent<Monster>().SetWayPoints(WayPointsPosition);
                     aMonsterIsSpawned = true;
                     spawnMonsterCount++;
                 }
