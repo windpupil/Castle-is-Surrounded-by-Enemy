@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: "\u54E8\u5854\u5EFA\u7B51"
   m_EditorClassIdentifier: 
   buildingName: "\u54E8\u5854"
-  buildingCost: 10
-  attack: 5
   health: 10
   attackSpeed: 1
   bleedingPerSecond: 2
   bullet: {fileID: 6130882652188111072, guid: dd533fadb30f47f4d88361861acc02f5, type: 3}
+  attackSpace: 2

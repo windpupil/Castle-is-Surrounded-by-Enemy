@@ -82,4 +82,12 @@ public class CardManager : MonoBehaviour
             currentLibraryCard[index] = temp;
         }
     }
+    public void AddCardToLibrary(Card card)
+    {
+        libraryCard.Add(card);
+    }
+    public void DeleteCardFromLibrary(Card card)
+    {
+        libraryCard.Remove(card);
+    }
 }
