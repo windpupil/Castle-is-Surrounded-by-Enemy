@@ -5,11 +5,13 @@ public class FightManager : MonoBehaviour
 {
     public static FightManager Instance{get;private set;}
     [SerializeField]private CostUI costUI;
+    [SerializeField] private GameObject rewardWindow;
+    private int restMonsterCnt;
     private void Awake() {
         Instance = this;
     }
     private void Start() {
-
+        rewardWindow.SetActive(false);
     }
     private void OnDestroy() {
         Instance = null;
@@ -18,9 +20,23 @@ public class FightManager : MonoBehaviour
     {
         return costUI;
     }
+    public void SetMonsterCnt(int monsterCnt)
+    {
+        restMonsterCnt = monsterCnt;
+    }
+    public void AMonsterIsKilled()
+    {
+        restMonsterCnt--;
+        if(restMonsterCnt <= 0 ) {
+        //游戏胜利
+        rewardWindow.SetActive(true);
+        }
+    }
     public void DestroyBase()
     {
         Debug.Log("Game Over!");
         UnityEditor.EditorApplication.isPlaying = false;
     }
+    
+    
 }

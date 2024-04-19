@@ -40,6 +40,7 @@ public class Monster : Object
     }
     private void OnDestroy()
     {
+        FightManager.Instance.AMonsterIsKilled();
         ReturnCostOnDestroy();
     }
     public void SetWayPoints(List<Vector3> wayPoints)
@@ -125,5 +126,9 @@ public class Monster : Object
             // Debug.Log(target);
             //���ǿ�Ѫ��������ҡ��
         }
+    }
+    public bool IsFly()
+    {
+        return monsterSO.isFly;
     }
 }

@@ -16,6 +16,11 @@ public class RoadMake : MonoBehaviour
     // private Vector3[] road_xy;
     private List<Vector3> road_xy;
 
+    private void Awake()
+    {
+        GetRoadxy();
+    }
+
     void Start()
     {
         GenerateRoad_all();
@@ -112,7 +117,7 @@ public class RoadMake : MonoBehaviour
     }
     void GenerateRoad_all()
     {
-        GetRoadxy();
+        
         //在所有非道路位置生成placedBlock
         for(int i=-1*Global.MAXROW;i<=Global.MAXROW;i++){
             for(int j=-1*Global.MAXCOL;j<=Global.MAXCOL;j++){
