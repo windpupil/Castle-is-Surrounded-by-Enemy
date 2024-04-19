@@ -126,4 +126,8 @@ public class Monster : Object
             //���ǿ�Ѫ��������ҡ��
         }
     }
+    public bool IsFly()
+    {
+        return monsterSO.isFly;
+    }
 }
