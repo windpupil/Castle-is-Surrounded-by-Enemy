@@ -31,6 +31,8 @@ public class MonsterSpawner : MonoBehaviour
     private int spawnMonsterIndex = 0;
     private int spawnMonsterCount = 0;
 
+    
+
     private void Start()
     {
 
@@ -39,6 +41,12 @@ public class MonsterSpawner : MonoBehaviour
         MonstersPerWave_MonsterID = levelSO.MonstersPerWave_MonsterID;
         MonstersPerWave_MonsterNum = levelSO.MonstersPerWave_MonsterNum;
         WayPointsPosition = roadMake.Get_road_xy();
+        //传输本关总怪物数
+        int monsterTotalNum = 0;
+        foreach (int eachMonsterNum in MonstersPerWave_MonsterNum){
+            monsterTotalNum += eachMonsterNum;
+        }
+        FightManager.Instance.SetMonsterCnt(monsterTotalNum);
 }
 
 
@@ -61,7 +69,6 @@ public class MonsterSpawner : MonoBehaviour
                 {
                     //通过ID找到怪物，生成
                     int monsterIndex = MonstersPerWave_MonsterID[waveCount * Global.Max_SpawnMonsterIndex + spawnMonsterIndex];
-                    Debug.Log(monsterIndex);
                     GameObject generatedMonster = Instantiate(levelSO.monsters[monsterIndex], WayPointsPosition[0], Quaternion.identity);
                     generatedMonster.GetComponent<Monster>().SetWayPoints(WayPointsPosition);
                     aMonsterIsSpawned = true;

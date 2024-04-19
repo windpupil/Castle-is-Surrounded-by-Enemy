@@ -40,6 +40,7 @@ public class Monster : Object
     }
     private void OnDestroy()
     {
+        FightManager.Instance.AMonsterIsKilled();
         ReturnCostOnDestroy();
     }
     public void SetWayPoints(List<Vector3> wayPoints)
