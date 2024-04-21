@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 569416233760399367}
   - component: {fileID: 6099690953039516629}
   - component: {fileID: 5569033204730300729}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u54E8\u5854\u5B50\u5F39"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

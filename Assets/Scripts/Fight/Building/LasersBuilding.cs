@@ -1,7 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WatchTowerBuilding : Building
+public class LasersBuilding : Building
 {
     private float attackTime;
     private List<GameObject> enemyList = new();
@@ -19,19 +20,22 @@ public class WatchTowerBuilding : Building
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (enemyList.Count > 0 && attackTime >= buildingSO.attackSpeed)
+        if (attackTime >= buildingSO.attackSpeed)
         {
-            //如果怪物死在攻击范围内，enemyList中会有一个null,所以我加了for
-            for (int i = 0; i < enemyList.Count; i++)
-            {
-                if (enemyList[i] == null)
-                {
-                    enemyList.RemoveAt(i);
-                    i--;
-                }
-            }
-            Attack(enemyList[0]);
             attackTime = 0;
+            if (enemyList.Count > 0)
+            {
+                //如果怪物死在攻击范围内，enemyList中会有一个null,所以我加了for
+                for (int i = 0; i < enemyList.Count; i++)
+                {
+                    if (enemyList[i] == null)
+                    {
+                        enemyList.RemoveAt(i);
+                        i--;
+                    }
+                }
+                Attack(enemyList[0]);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -45,7 +49,14 @@ public class WatchTowerBuilding : Building
     {
         // Debug.Log("Attack");
         GameObject go = Instantiate(buildingSO.bullet, transform.position, Quaternion.identity);
-        go.GetComponent<WatchTowerBullet>().SetTargetPos(target.transform);
+        // Debug.Log(go);
+        //这里碰见过bug，当怪物刚好在这行代码执行前死亡，会因为target为null而报错,所以加了这个判断
+        if (target == null)
+        {
+            Destroy(go);
+            return;
+        }
+        go.GetComponent<LasersBullet>().SetTargetPos(target.transform);
     }
     private void Update()
     {

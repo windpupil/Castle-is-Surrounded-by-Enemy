@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8113208, g: 0.12756611, b: 0.12756611, a: 0.67058825}
+  m_Color: {r: 0.14150941, g: 0.06763971, b: 0.06763971, a: 0.6156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 569416233760399367}
   - component: {fileID: 6099690953039516629}
-  - component: {fileID: -9170707784023261004}
+  - component: {fileID: 8532629915933988418}
   m_Layer: 8
-  m_Name: "\u706B\u7403\u5B50\u5F39"
+  m_Name: "\u706B\u70AE\u5B50\u5F39"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-9170707784023261004
+--- !u!114 &8532629915933988418
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6130882652188111072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daf90063a46afc040a1d4ab879a03c4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2000f7cfe872a454594ed2240644f6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSO: {fileID: 11400000, guid: a5897d6053461c649b87a742ca1ff94c, type: 2}
+  bulletSO: {fileID: 11400000, guid: 162a0303ca3cacb4b9d57110a4e4116d, type: 2}

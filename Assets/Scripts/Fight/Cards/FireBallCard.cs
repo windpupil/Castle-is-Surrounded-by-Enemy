@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class FireBallCard : Card
 {
-    public override void Use()
-    {
-        if (FightManager.Instance.GetCostUI().GetCost() < cardSO.cost)
-        {
-            Debug.Log("能量不足");
-            return;
-        }
-        PlacedPoint.Instance.SetActiveTrue();
-        Road.Instance.SetRoadSelectedTrue();
-        StartCoroutine(GetNextClickPos());
-    }
+
     //协程获取下次鼠标点击的位置
-    private IEnumerator GetNextClickPos()
+    public override IEnumerator GetNextClickPos()
     {
         while (true)
         {
@@ -46,14 +36,5 @@ public class FireBallCard : Card
             }
             yield return null;
         }
-    }
-    private void UseAction(Transform target)
-    {
-        GameObject go = Instantiate(cardSO.gameObject, target.position, Quaternion.identity);
-        go.transform.SetParent(target.parent);
-        PlacedPoint.Instance.SetActiveFalse();
-        Road.Instance.SetRoadSelectedFalse();
-        FightManager.Instance.GetCostUI().SetCost(-cardSO.cost);
-        CardManager.Instance.RemoveCard(this);
     }
 }

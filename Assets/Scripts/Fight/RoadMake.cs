@@ -56,7 +56,7 @@ public class RoadMake : MonoBehaviour
                     // Debug.Log("open");
                     if(!flag){
                         road_sum=int.Parse(line_content);
-                        Debug.Log("road_sum:"+road_sum);
+                        // Debug.Log("road_sum:"+road_sum);
                         flag=true;
                         continue;
                     }
@@ -74,7 +74,7 @@ public class RoadMake : MonoBehaviour
                         Vector3 tempxy=new Vector3(tempx,tempy,0f);
                         // road_xy[i]=tempxy;
                         road_xy.Add(tempxy);
-                        Debug.Log("roadxy["+i+"]:"+road_xy[i]);
+                        // Debug.Log("roadxy["+i+"]:"+road_xy[i]);
                     }
                     // road_sum=0;
                     flag=false;

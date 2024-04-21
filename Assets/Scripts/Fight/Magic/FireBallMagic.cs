@@ -41,7 +41,7 @@ public class FireBallMagic : Magic
     {
         // Debug.Log("Attack");
         GameObject go = Instantiate(MagicSO.bullet, transform.position, Quaternion.identity);
-        go.GetComponent<Bullet>().SetTargetPos(target.transform.position);
+        go.GetComponent<Bullet>().SetTargetPos(target.transform);
     }
     private void Update()
     {

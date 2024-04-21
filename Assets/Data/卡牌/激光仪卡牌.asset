@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c32f2f4df9f18f428bab3806762c820, type: 3}
-  m_Name: "\u54E8\u5854\u5361\u724C"
+  m_Name: "\u6FC0\u5149\u4EEA\u5361\u724C"
   m_EditorClassIdentifier: 
-  cardName: "\u54E8\u5854"
-  cardDescription: "\u6700\u4F4E\u7EA7\u7684\u653B\u51FB\u5EFA\u7B51"
-  cost: 5
-  gameObject: {fileID: 3785758096689678933, guid: 0ba2919548f2d024baf296b914d4dc5d, type: 3}
-  cardObject: {fileID: 3638667036186494055, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
+  cardName: "\u6FC0\u5149\u4EEA"
+  cardDescription: "\u53EF\u540C\u65F6\u653B\u51FB\u591A\u4E2A\u76EE\u6807"
+  cost: 10
+  gameObject: {fileID: 3785758096689678933, guid: eb2f677d00e382c4895cf382ee040f6c, type: 3}
+  cardObject: {fileID: 3638667036186494055, guid: 4b766ca0d7369ff44bcc49718a913800, type: 3}
   cardType: 0

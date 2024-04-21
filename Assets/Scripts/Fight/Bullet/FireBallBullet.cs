@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireBallBullet : Bullet
 {
-    public override void OnTriggerEnter2D(Collider2D other)
+    public override void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {

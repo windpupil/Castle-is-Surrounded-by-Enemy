@@ -392,13 +392,9 @@ MonoBehaviour:
   - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
   - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
   - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
-  - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
-  - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
-  - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
-  - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
-  - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
-  - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
-  - {fileID: 8596091696308769236, guid: 977618bd38b33014ebb8d5f90097d552, type: 3}
+  - {fileID: -11779775532611028, guid: 4b766ca0d7369ff44bcc49718a913800, type: 3}
+  - {fileID: -11779775532611028, guid: 4b766ca0d7369ff44bcc49718a913800, type: 3}
+  - {fileID: 3038891206515430475, guid: b589abf0aee5dd047b5fd0830862a89f, type: 3}
   drawCardsUI: {fileID: 2098451159}
   handCardsUI: {fileID: 1652970514}
 --- !u!1 &518024320
@@ -418,7 +414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &518024321
 RectTransform:
   m_ObjectHideFlags: 0

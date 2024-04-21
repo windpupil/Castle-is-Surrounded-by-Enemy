@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fbbcaae613fd8c468ecdf67e5918c2d, type: 3}
-  m_Name: "\u54E8\u5854\u5B50\u5F39"
+  m_Name: "\u6FC0\u5149\u4EEA\u5B50\u5F39"
   m_EditorClassIdentifier: 
-  attack: 2
-  speed: 5
+  attack: 8
+  speed: 0
   lastTimeHurt: 0
   hurtInterval: 0
