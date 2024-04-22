@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class LasersBuilding : Building
 {
-    private float attackTime;
     private List<GameObject> enemyList = new();
     private void Start()
     {
+        enemyList = attackRange.GetTagList();
         attackTime = buildingSO.attackSpeed;
         Hp = buildingSO.health;
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            enemyList.Add(other.gameObject);
-        }
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -38,13 +31,6 @@ public class LasersBuilding : Building
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            enemyList.Remove(other.gameObject);
-        }
-    }
     private void Attack(GameObject target)
     {
         // Debug.Log("Attack");
@@ -57,10 +43,5 @@ public class LasersBuilding : Building
             return;
         }
         go.GetComponent<LasersBullet>().SetTargetPos(target.transform);
-    }
-    private void Update()
-    {
-        attackTime += Time.deltaTime;
-        Hp -= buildingSO.bleedingPerSecond * Time.deltaTime;
     }
 }

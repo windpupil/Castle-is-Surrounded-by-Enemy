@@ -395,6 +395,8 @@ MonoBehaviour:
   - {fileID: -11779775532611028, guid: 4b766ca0d7369ff44bcc49718a913800, type: 3}
   - {fileID: -11779775532611028, guid: 4b766ca0d7369ff44bcc49718a913800, type: 3}
   - {fileID: 3038891206515430475, guid: b589abf0aee5dd047b5fd0830862a89f, type: 3}
+  - {fileID: 1640561790992519968, guid: 9ccf346a901440c4d8bc9aab6eb61174, type: 3}
+  - {fileID: 1640561790992519968, guid: 9ccf346a901440c4d8bc9aab6eb61174, type: 3}
   drawCardsUI: {fileID: 2098451159}
   handCardsUI: {fileID: 1652970514}
 --- !u!1 &518024320

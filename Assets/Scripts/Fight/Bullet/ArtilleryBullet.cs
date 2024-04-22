@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ArtilleryBullet : Bullet
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private AttackRange attackRange;
+    public override void OnTriggerStay2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Enemy"))
+        {
+            for(int i = 0; i < attackRange.GetTagList().Count; i++)
+            {
+                // Debug.Log(attackRange.GetTagList()[i]);
+                attackRange.GetTagList()[i].GetComponent<Monster>().Sethp(-bulletSO.attack);
+            }
+            Destroy(gameObject);
+        }
     }
 }

@@ -5,6 +5,8 @@ public class Building : CardsExamples
 {
     public BuildingSO buildingSO;
     private GameObject placedPoint;
+    protected float attackTime;
+    [SerializeField] protected AttackRange attackRange;
     [SerializeField] private Image hpBar;
     private float hp;
     public float Hp
@@ -42,5 +44,10 @@ public class Building : CardsExamples
     public void SetPlacedPoint(GameObject go)
     {
         placedPoint = go;
+    }
+    private void Update()
+    {
+        attackTime += Time.deltaTime;
+        Hp -= buildingSO.bleedingPerSecond * Time.deltaTime;
     }
 }

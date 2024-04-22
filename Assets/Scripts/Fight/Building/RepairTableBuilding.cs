@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class RepairTableBuilding : Building
 {
-    private float attackTime;
     private List<GameObject> buildingList = new();
     private void Start()
     {
+        buildingList = attackRange.GetTagList();
         attackTime = buildingSO.attackSpeed;
         Hp = buildingSO.health;
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Building"))
-        {
-            // Debug.Log("Enter");
-            buildingList.Add(other.gameObject);
-        }
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -29,29 +21,16 @@ public class RepairTableBuilding : Building
                 {
                     buildingList.RemoveAt(i);
                     i--;
+                    break;
                 }
+                Attack(buildingList[i].GetComponentInParent<Building>());
             }
-            Attack(buildingList[0]);
             attackTime = 0;
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Building"))
-        {
-            buildingList.Remove(other.gameObject);
-        }
-    }
-    private void Attack(GameObject target)
+    private void Attack(Building targetBuilding)
     {
         // Debug.Log("Attack");
-        Debug.Log(target.GetComponent<Building>().Hp);
-        target.GetComponent<Building>().Hp += 1;
-        Debug.Log(target.GetComponent<Building>().Hp);
-    }
-    private void Update()
-    {
-        attackTime += Time.deltaTime;
-        Hp -= buildingSO.bleedingPerSecond * Time.deltaTime;
+        targetBuilding.GetComponent<Building>().Hp += 1;
     }
 }
