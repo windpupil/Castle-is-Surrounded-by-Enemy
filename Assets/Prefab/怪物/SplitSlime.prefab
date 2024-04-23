@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 3650660896363399615}
   - component: {fileID: 2164555430050870381}
   m_Layer: 5
-  m_Name: HpBar
+  m_Name: SlimeHpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,12 +187,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2576298242021873781}
   - component: {fileID: 7406887719255412775}
+  - component: {fileID: 5361172943897464436}
   - component: {fileID: 55460474701875103}
-  - component: {fileID: 4016983942784082532}
   - component: {fileID: 6499371824253832731}
-  - component: {fileID: -4961974315196773751}
   m_Layer: 7
-  m_Name: DogMonster
+  m_Name: SplitSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,6 +211,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 794316264184523143}
+  - {fileID: 1282180287375625972}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7406887719255412775
@@ -256,7 +256,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5380135, g: 0.6792453, b: 0.5087932, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -266,6 +266,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5361172943897464436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744860166333934649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75882cbbaef2d84499ecf0a1ef701c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterSO: {fileID: 11400000, guid: d9b18670075ec5b4eb000e97c2a27d32, type: 2}
+  hpBar: {fileID: 2164555430050870381}
+  smallSlime: {fileID: 6744860166333934649, guid: e9b9cd74f576c5049875ad16e3722eeb, type: 3}
 --- !u!58 &55460474701875103
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -301,20 +316,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4016983942784082532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6744860166333934649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50eda421656f96429fefa661b6a43be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterSO: {fileID: 11400000, guid: 1a346fbe940dae64aa4187e267f08851, type: 2}
-  hpBar: {fileID: 2164555430050870381}
 --- !u!50 &6499371824253832731
 Rigidbody2D:
   serializedVersion: 4
@@ -342,13 +343,46 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-4961974315196773751
+--- !u!1 &8324347678522454149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282180287375625972}
+  - component: {fileID: 7667845524976158211}
+  - component: {fileID: 903039664867052077}
+  m_Layer: 7
+  m_Name: AttackRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282180287375625972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324347678522454149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2576298242021873781}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7667845524976158211
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6744860166333934649}
+  m_GameObject: {fileID: 8324347678522454149}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -357,7 +391,7 @@ CircleCollider2D:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -371,9 +405,21 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &903039664867052077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324347678522454149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586f0241d3591c8498390b4cea2dab54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -8,11 +8,12 @@ public class Monster : Object
 {
     public MonsterSO monsterSO;
     [SerializeField] Image hpBar;
-    private int hp;
+    protected int hp;
     protected GameObject target;
-    private float attackTime;
-    private List<Vector3> WayPointsPosition;
-    private int nextWayPointsIndex = 0;
+    protected float attackTime;
+    protected List<Vector3> WayPointsPosition;
+    protected int nextWayPointsIndex = 0;
+    protected bool isFrozen = false, isDisrupt = false;
     public int Hp
     {
         get { return hp; }
@@ -33,12 +34,12 @@ public class Monster : Object
             UpdateHpBar();
         }
     }
-    private void Start()
+    protected void Start()
     {
         Hp = monsterSO.hp;
         //WayPointsPosition = WayPoints.Instance.WayPointsPosition;
     }
-    private void OnDestroy()
+    virtual protected void OnDestroy()
     {
         FightManager.Instance.AMonsterIsKilled();
         ReturnCostOnDestroy();
@@ -56,7 +57,7 @@ public class Monster : Object
         StartCoroutine(SetHpContinuouslyCoroutine(hp, lastTime, hurtRate));
     }
 
-    private IEnumerator SetHpContinuouslyCoroutine(int hp, float lastTime, float hurtRate)
+    protected IEnumerator SetHpContinuouslyCoroutine(int hp, float lastTime, float hurtRate)
     {
         float t = 0;
         while (t < lastTime)
@@ -68,33 +69,24 @@ public class Monster : Object
         }
     }
 
-    private void ReturnCostOnDestroy()
+    protected void ReturnCostOnDestroy()
     {
         if (FightManager.Instance != null)
         {
             FightManager.Instance.GetCostUI().SetCost(monsterSO.addCost);
         }
     }
-    private void UpdateHpBar()
+    protected void UpdateHpBar()
     {
         hpBar.fillAmount = (float)hp / monsterSO.hp;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    public void SetTarget(GameObject tar)
     {
-        if (other.gameObject.CompareTag("Main Base"))
-        {
-            target = other.gameObject;
-        }
+        target = tar;
     }
-    private void OnTriggerExit2D(Collider2D other)
+    protected void Update()
     {
-        if (other.gameObject.CompareTag("Main Base"))
-        {
-            target = null;
-        }
-    }
-    private void Update()
-    {
+        if(isFrozen){ return; }
         if (target == null)
         {
             Move();
@@ -104,7 +96,7 @@ public class Monster : Object
             Attack();
         }
     }
-    private void Move()
+    protected void Move()
     {
         if (nextWayPointsIndex >= WayPointsPosition.Count)
         {
@@ -116,19 +108,30 @@ public class Monster : Object
             nextWayPointsIndex++;
         }
     }
-    private void Attack()
+    protected void Attack()
     {
         attackTime += Time.deltaTime;
         if (attackTime > monsterSO.attackSpeed)
         {
             attackTime -= monsterSO.attackSpeed;
             target.GetComponent<MainBase>().Hp -= monsterSO.attack;
-            // Debug.Log(target);
-            //���ǿ�Ѫ��������ҡ��
+
         }
     }
     public bool IsFly()
     {
         return monsterSO.isFly;
+    }
+    public void Froze()
+    {
+        this.isFrozen = true;
+    }
+    public void Disrupt()
+    {
+        this.isDisrupt = true;
+    }
+    public void setNextWayPointIndex(int index)
+    {
+        nextWayPointsIndex = index;
     }
 }

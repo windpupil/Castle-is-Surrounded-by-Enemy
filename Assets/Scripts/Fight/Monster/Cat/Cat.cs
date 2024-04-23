@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogMonster : Monster
+public class Cat : Monster
 {
 
 }

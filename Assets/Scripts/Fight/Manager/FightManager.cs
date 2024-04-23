@@ -32,6 +32,10 @@ public class FightManager : MonoBehaviour
         rewardWindow.SetActive(true);
         }
     }
+    public void AnotherMonsterSpawned(int monsterCnt)
+    {
+        restMonsterCnt += monsterCnt;
+    }
     public void DestroyBase()
     {
         Debug.Log("Game Over!");
