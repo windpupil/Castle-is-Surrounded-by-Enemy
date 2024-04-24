@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 5e4ba3fc572b83248a07a8ca1fb115b9
+guid: d3e3d4dbe28d37b419249d45b4b1c765
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - levelSO: {instanceID: 0}
-  - roadMake: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

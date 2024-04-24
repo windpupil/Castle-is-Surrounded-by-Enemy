@@ -7,12 +7,14 @@ public class FightManager : MonoBehaviour
     public static FightManager Instance{get;private set;}
     [SerializeField]private CostUI costUI;
     [SerializeField] private GameObject rewardWindow;
+    [SerializeField] private GameObject failWindow;
     private int restMonsterCnt;
     private void Awake() {
         Instance = this;
     }
     private void Start() {
         rewardWindow.SetActive(false);
+        failWindow.SetActive(false);
     }
     private void OnDestroy() {
         Instance = null;
@@ -40,6 +42,8 @@ public class FightManager : MonoBehaviour
     public void DestroyBase()
     {
         Debug.Log("Game Over!");
-        // UnityEditor.EditorApplication.isPlaying = false;
+        Time.timeScale = 0;
+        failWindow.SetActive(true);
+ /*       UnityEditor.EditorApplication.isPlaying = false;*/
     }
 }

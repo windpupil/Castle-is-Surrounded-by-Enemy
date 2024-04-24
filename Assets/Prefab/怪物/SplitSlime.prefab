@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75882cbbaef2d84499ecf0a1ef701c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterSO: {fileID: 11400000, guid: d9b18670075ec5b4eb000e97c2a27d32, type: 2}
+  monsterSO: {fileID: 11400000, guid: 100175672664a3d4eb03652e85dc2d0e, type: 2}
   hpBar: {fileID: 2164555430050870381}
   smallSlime: {fileID: 6744860166333934649, guid: e9b9cd74f576c5049875ad16e3722eeb, type: 3}
 --- !u!58 &55460474701875103
