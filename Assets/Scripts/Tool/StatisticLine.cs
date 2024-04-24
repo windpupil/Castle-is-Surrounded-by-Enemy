@@ -5,8 +5,8 @@ using UnityEditor;
 
 public class StatisticLine
 {
-    [MenuItem("Tool/输出总代码行数/输出")]
-    private static void PrintTotalLine()
+    //[MenuItem("Tool/输出总代码行数/输出")]
+    /*private static void PrintTotalLine()
     {
         string[] fileName = Directory.GetFiles("Assets/Scripts", "*.cs", SearchOption.AllDirectories);
 
@@ -27,5 +27,5 @@ public class StatisticLine
         }
 
         Debug.Log(String.Format("总代码行数：{0}", totalLine));
-    }
+    }*/
 }

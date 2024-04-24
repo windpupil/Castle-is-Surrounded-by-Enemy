@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e00d87932dd44b4fb8489764c9d7e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterSO: {fileID: 11400000, guid: 100175672664a3d4eb03652e85dc2d0e, type: 2}
+  monsterSO: {fileID: 11400000, guid: fb77a954ba1832c4ca73fcd04901e1d2, type: 2}
   hpBar: {fileID: 2164555430050870381}
 --- !u!58 &55460474701875103
 CircleCollider2D:

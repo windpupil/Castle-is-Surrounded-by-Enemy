@@ -21,6 +21,7 @@ public class Monster : Object
         {
             if (value <= 0)
             {
+                DeathEffect();
                 Destroy(gameObject);
             }
             else if (value > monsterSO.hp)
@@ -39,7 +40,7 @@ public class Monster : Object
         Hp = monsterSO.hp;
         //WayPointsPosition = WayPoints.Instance.WayPointsPosition;
     }
-    virtual protected void OnDestroy()
+    protected void OnDestroy()
     {
         FightManager.Instance.AMonsterIsKilled();
         ReturnCostOnDestroy();
@@ -117,6 +118,10 @@ public class Monster : Object
             target.GetComponent<MainBase>().Hp -= monsterSO.attack;
 
         }
+    }
+    virtual protected void DeathEffect()
+    {
+        return;
     }
     public bool IsFly()
     {
