@@ -9,14 +9,14 @@ public class SlimeAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Main Base"))
         {
-            this.GetComponent<Transform>().parent.GetComponent<Slime>().SetTarget(other.gameObject);
+            this.GetComponent<Transform>().parent.GetComponent<Monster>().SetTarget(other.gameObject);
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Main Base"))
         {
-            this.GetComponent<Transform>().parent.GetComponent<Slime>().SetTarget(null);
+            this.GetComponent<Transform>().parent.GetComponent<Monster>().SetTarget(null);
         }
     }
 }

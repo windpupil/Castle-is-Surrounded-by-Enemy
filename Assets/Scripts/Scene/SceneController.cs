@@ -8,8 +8,8 @@ public static class SceneController
 {
     // 场景列表，这里填写的都是你已经存在的scene 的场景名
     public static ArrayList sceneNames = new ArrayList() {
-        "Loading",
         "Main",
+        "Loading",
         "Fight",
     };
     // 自定义loading名，在这里使用它是因为别的需求，如果你的需求比较简单可以直接写死
