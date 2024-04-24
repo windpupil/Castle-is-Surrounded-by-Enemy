@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: "\u6FC0\u5149\u4EEA\u5EFA\u7B51"
   health: 40
-  attackSpeed: 5
+  attackSpeed: 1
   bleedingPerSecond: 1
   bullet: {fileID: 6130882652188111072, guid: 28273f95fec294c4a8a77abd5af7f20f, type: 3}
   attackSpace: 2

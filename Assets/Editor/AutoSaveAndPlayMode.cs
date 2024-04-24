@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor.SceneManagement;
 using UnityEditor.PackageManager.UI;
 
+#if UNITY_EDITOR
 // 在Unity编辑器加载时执行的自动保存和播放模式检测类
 [InitializeOnLoad]
 public class AutoSaveAndPlayMode : EditorWindow
@@ -105,3 +106,4 @@ public class AutoSaveAndPlayMode : EditorWindow
         }
     }
 }
+#endif

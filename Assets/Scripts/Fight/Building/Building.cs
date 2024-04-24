@@ -6,6 +6,7 @@ public class Building : CardsExamples
     public BuildingSO buildingSO;
     private GameObject placedPoint;
     protected float attackTime;
+    private float oneSecondTimer;
     [SerializeField] protected AttackRange attackRange;
     [SerializeField] private Image hpBar;
     private float hp;
@@ -47,7 +48,12 @@ public class Building : CardsExamples
     }
     private void Update()
     {
+        oneSecondTimer += Time.deltaTime;
         attackTime += Time.deltaTime;
-        Hp -= buildingSO.bleedingPerSecond * Time.deltaTime;
+        if(oneSecondTimer >= 1)
+        {
+            oneSecondTimer = 0;
+            Hp -= buildingSO.bleedingPerSecond;
+        }
     }
 }

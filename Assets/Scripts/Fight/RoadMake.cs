@@ -13,8 +13,8 @@ public class RoadMake : MonoBehaviour
     private Vector3 endPoint= new Vector3(0f, 0f, 0f);
 
     private int road_sum=0;
-    // private Vector3[] road_xy;
     private List<Vector3> road_xy;
+    private List<Vector3> placedPoint_xy = new();
 
     private void Awake()
     {
@@ -78,9 +78,7 @@ public class RoadMake : MonoBehaviour
                     }
                     // road_sum=0;
                     flag=false;
-
                     // Debug.Log(line_content.GetType());
-
                 }
             }
         }
@@ -117,12 +115,38 @@ public class RoadMake : MonoBehaviour
     }
     void GenerateRoad_all()
     {
-        
+        //遍历road_xy，给placedPoint_xy添加所有的道路坐标
+        for(int i=0;i<road_sum-1;i++){
+            placedPoint_xy.Add(road_xy[i]);
+            if(road_xy[i+1].x==road_xy[i].x)
+            {
+                for(int j=0;j<Mathf.Abs(road_xy[i+1].y-road_xy[i].y)-1;j++){
+                    if(road_xy[i+1].y>road_xy[i].y){
+                        placedPoint_xy.Add(new Vector3(road_xy[i].x,road_xy[i].y+j+1,0f));
+                    }
+                    else if(road_xy[i+1].y<road_xy[i].y){
+                        placedPoint_xy.Add(new Vector3(road_xy[i].x,road_xy[i].y-j-1,0f));
+                    }
+                }
+            }
+            else if(road_xy[i+1].y==road_xy[i].y)
+            {
+                for(int j=0;j<Mathf.Abs(road_xy[i+1].x-road_xy[i].x)-1;j++){
+                    if(road_xy[i+1].x>road_xy[i].x){
+                        placedPoint_xy.Add(new Vector3(road_xy[i].x+j+1,road_xy[i].y,0f));
+                    }
+                    else if(road_xy[i+1].x<road_xy[i].x){
+                        placedPoint_xy.Add(new Vector3(road_xy[i].x-j-1,road_xy[i].y,0f));
+                    }
+                }
+            }
+        }
+        placedPoint_xy.Add(road_xy[road_sum-1]);
         //在所有非道路位置生成placedBlock
         for(int i=-1*Global.MAXROW;i<=Global.MAXROW;i++){
             for(int j=-1*Global.MAXCOL;j<=Global.MAXCOL;j++){
                 Vector3 temp=new Vector3(j,i,0f);
-                if(!road_xy.Contains(temp)){
+                if(!placedPoint_xy.Contains(temp)){
                     // Debug.Log("placedBlock:"+temp);
                     GameObject gameObject= Instantiate(placedBlock, temp, Quaternion.identity);
                     gameObject.transform.SetParent(placedBlockParent.transform);

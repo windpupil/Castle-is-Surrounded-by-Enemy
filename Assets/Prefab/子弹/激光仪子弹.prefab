@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSO: {fileID: 11400000, guid: 6fa317327620ba94689043b632d674d9, type: 2}
-  existMaxTime: 5
+  existMaxTime: 1
 --- !u!61 &6067057107695778209
 BoxCollider2D:
   m_ObjectHideFlags: 0

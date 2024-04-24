@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u54E8\u5854\u5EFA\u7B51"
   m_EditorClassIdentifier: 
   buildingName: "\u54E8\u5854"
-  health: 10
+  health: 40
   attackSpeed: 1
   bleedingPerSecond: 1
   bullet: {fileID: 6130882652188111072, guid: dd533fadb30f47f4d88361861acc02f5, type: 3}

@@ -16,5 +16,5 @@ MonoBehaviour:
   attack: 10
   attackSpeed: 1
   addCost: 1
-  speed: 1
+  speed: 0.1
   isFly: 0
