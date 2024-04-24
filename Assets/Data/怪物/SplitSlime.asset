@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fbbcaae613fd8c468ecdf67e5918c2d, type: 3}
-  m_Name: "\u54E8\u5854\u5B50\u5F39"
+  m_Script: {fileID: 11500000, guid: 983bc0d1f62faa54fb46682425d43604, type: 3}
+  m_Name: SplitSlime
   m_EditorClassIdentifier: 
-  attack: 10
-  speed: 5
-  lastTimeHurt: 0
-  hurtInterval: 0
+  hp: 150
+  attack: 5
+  attackSpeed: 1
+  addCost: 1
+  speed: 0.5
+  isFly: 0
