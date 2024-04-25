@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3826486374
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: mapdata.ab
+      Dependencies: {}

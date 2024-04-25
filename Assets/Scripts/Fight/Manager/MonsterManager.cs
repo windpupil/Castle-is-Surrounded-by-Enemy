@@ -12,18 +12,18 @@ public class MonsterSpawner : MonoBehaviour
     public LevelSO levelSO;
     //public GameObject start;
     [SerializeField]private RoadMake roadMake;
-    //×Ü²¨Êý
+    //ï¿½Ü²ï¿½ï¿½ï¿½
     private int waveTotalNum;
-    //µ±Ç°²¨Êý
+    //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
     private int waveCount = 0;
-    //Ã¿Ò»²¨¹ÖË¢ÍêºóµÄ¼ä¸ôÊ±¼ä
+    //Ã¿Ò»ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ê±ï¿½ï¿½
     private int[] waveInterval;
-    //Ã¿²¨¹ÖÊýÁ¿
+    //Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private List<int> MonstersPerWave_MonsterID;
     private List<int> MonstersPerWave_MonsterNum;
     private List<Vector3> WayPointsPosition;
 
-    //ÏÂ²¨³ö¹Öµ¹Êý
+    //ï¿½Â²ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½
     private int nextWaveCountDown = 0;
 
     private float myTime = 0;
@@ -42,7 +42,7 @@ public class MonsterSpawner : MonoBehaviour
         MonstersPerWave_MonsterID = levelSO.MonstersPerWave_MonsterID;
         MonstersPerWave_MonsterNum = levelSO.MonstersPerWave_MonsterNum;
         WayPointsPosition = roadMake.Get_road_xy();
-        //´«Êä±¾¹Ø×Ü¹ÖÎïÊý
+        //ï¿½ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ï¿½
         int monsterTotalNum = 0;
         foreach (int eachMonsterNum in MonstersPerWave_MonsterNum){
             monsterTotalNum += eachMonsterNum;
@@ -51,10 +51,9 @@ public class MonsterSpawner : MonoBehaviour
 }
 
 
-    //ºóÐø¿ÉÍØÕ¹£ºÔÚstartÎïÌåÉÏÏÔÊ¾ÏÂÒ»²¨¹ÖÎïÉú³Éµ¹¼ÆÊ±nextWaveCountDown
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½startï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½Ê±nextWaveCountDown
     private void Update()
     {
-        
         if (waveCount >= waveTotalNum)
         {
             return;
@@ -68,7 +67,7 @@ public class MonsterSpawner : MonoBehaviour
             {
                 if (MonstersPerWave_MonsterNum[waveCount* Global.Max_SpawnMonsterIndex+ spawnMonsterIndex] > spawnMonsterCount)
                 {
-                    //Í¨¹ýIDÕÒµ½¹ÖÎï£¬Éú³É
+                    //Í¨ï¿½ï¿½IDï¿½Òµï¿½ï¿½ï¿½ï¿½ï£¬ï¿½ï¿½ï¿½ï¿½
                     int monsterIndex = MonstersPerWave_MonsterID[waveCount * Global.Max_SpawnMonsterIndex + spawnMonsterIndex];
                     if(monsterIndex >= 0 && monsterIndex< levelSO.monsters.Count)
                     {

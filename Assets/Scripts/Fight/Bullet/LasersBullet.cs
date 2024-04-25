@@ -10,6 +10,8 @@ public class LasersBullet : Bullet
     private float existtime;
     private void Start()
     {
+        //warning: 如果子弹存在时间小于攻击时长，就会出现没有伤害的情况
+        attackTime = 10;
         transform.localScale = new Vector3(0.5f, Vector3.Distance(transform.position, GetTargetPos().position), 1);
         transform.position = (transform.position + GetTargetPos().position) / 2;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, GetTargetPos().position - transform.position);
@@ -25,6 +27,7 @@ public class LasersBullet : Bullet
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Enter");
         if (other.gameObject.CompareTag("Enemy"))
         {
             enemyList.Add(other.gameObject);
@@ -37,13 +40,12 @@ public class LasersBullet : Bullet
             attackTime = 0;
             for (int i = 0; i < enemyList.Count; i++)
             {
-                var enemy = enemyList[i];
                 // if (enemy.GetComponent<Monster>().Hp <= bulletSO.attack)
                 // {
                 //     enemyList.RemoveAt(i);
                 //     i--;
                 // }
-                enemy.GetComponent<Monster>().Sethp(-bulletSO.attack);
+                enemyList[i].GetComponent<Monster>().Sethp(-bulletSO.attack);
                 // Debug.Log(enemy.GetComponent<Monster>().Hp);
             }
         }
