@@ -5,6 +5,11 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public CardSO cardSO;
+    protected Camera mainCamera;
+    protected void Awake()
+    {
+        mainCamera = Camera.main;
+    }
     public virtual void Use()
     {
         if (PlacedPoint.Instance.GetPlacedBlocks().Count == 0)
@@ -30,7 +35,7 @@ public class Card : MonoBehaviour
                 // Debug.Log("点击了鼠标左键");
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = 10;
-                Vector3 screenPos = Camera.main.ScreenToWorldPoint(mousePos);
+                Vector3 screenPos = mainCamera.ScreenToWorldPoint(mousePos);
                 // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 // Debug.DrawRay(ray.origin, ray.direction * 30, Color.green);
                 // EditorApplication.isPaused = true;

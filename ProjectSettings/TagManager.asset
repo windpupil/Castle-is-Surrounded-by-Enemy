@@ -9,6 +9,7 @@ TagManager:
   - Main Base
   - Road
   - Building
+  - Map
   layers:
   - Default
   - TransparentFX

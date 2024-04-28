@@ -35,6 +35,7 @@ public class Monster : Object
             UpdateHpBar();
         }
     }
+    protected List<Status> statuses = new List<Status>();
     protected void Start()
     {
         Hp = monsterSO.hp;
@@ -87,7 +88,20 @@ public class Monster : Object
     }
     protected void Update()
     {
-        if(isFrozen){ return; }
+        isFrozen = false;
+        isDisrupt = false;
+        for(int i = statuses.Count - 1;i >= 0; i--)
+        {
+            if (statuses[i].IsTrigger())
+            {
+                statuses[i].StatusEffect.Invoke(this);
+            }
+            if (statuses[i].IsEnd())
+            {
+                statuses.Remove(statuses[i]);
+            }
+        }
+        if (isFrozen){ return; }
         if (target == null)
         {
             Move();
@@ -123,11 +137,15 @@ public class Monster : Object
     {
         return;
     }
+    public void ImposeStatus(Status status)
+    {
+        statuses.Add(status);
+    }
     public bool IsFly()
     {
         return monsterSO.isFly;
     }
-    public void Froze()
+    public void Freeze()
     {
         this.isFrozen = true;
     }

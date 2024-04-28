@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "\u706B\u7403\u6CD5\u672F"
   m_EditorClassIdentifier: 
   magicName: "\u706B\u7403"
-  lastTime: 3
-  attackSpeed: 100
-  bullet: {fileID: 6130882652188111072, guid: 675de74a126cd574c8b132328f0e1d41, type: 3}
+  lastTime: 5
+  triggerRate: 1
+  damage: 10

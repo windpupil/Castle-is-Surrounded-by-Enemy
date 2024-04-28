@@ -7,6 +7,6 @@ public class MagicSO : ScriptableObject
 {
     public string magicName;
     public float lastTime;
-    public float attackSpeed;
-    public GameObject bullet;
+    public float triggerRate;
+    public int damage;
 }
