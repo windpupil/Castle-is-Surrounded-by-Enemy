@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardSO: {fileID: 11400000, guid: 79f52de53ad69154eb5d93935193e05c, type: 2}
-  self: {fileID: 3638667036186494055}
 --- !u!114 &7231971155983115782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +183,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6256949302979310246
 CanvasRenderer:

@@ -18,3 +18,4 @@ MonoBehaviour:
   gameObject: {fileID: 3785758096689678933, guid: cbe2f4309a8cddd4582199030ae47d70, type: 3}
   cardObject: {fileID: 3638667036186494055, guid: b589abf0aee5dd047b5fd0830862a89f, type: 3}
   cardType: 0
+  rarityType: 1

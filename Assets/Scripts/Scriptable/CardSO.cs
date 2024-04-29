@@ -8,11 +8,18 @@ public class CardSO : ScriptableObject {
         consumption,
         remove,
     }
+    public enum RarityType
+    {
+        common,
+        rare,
+        legendary,
+    }
     public string cardName;
     public string cardDescription;
     public int cost;
     public GameObject gameObject;
     public GameObject cardObject;
     public CardType cardType;
+    public RarityType rarityType;
     // public int discardedCost;
 }

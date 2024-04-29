@@ -44,6 +44,5 @@ public class FightManager : MonoBehaviour
         Debug.Log("Game Over!");
         Time.timeScale = 0;
         failWindow.SetActive(true);
- /*       UnityEditor.EditorApplication.isPlaying = false;*/
     }
 }

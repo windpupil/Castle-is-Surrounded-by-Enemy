@@ -8,5 +8,4 @@ public class Skip : MonoBehaviour
     {
         SceneController.GoToSceneByName("Main");
     }
-
 }

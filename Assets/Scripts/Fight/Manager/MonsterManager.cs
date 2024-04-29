@@ -31,8 +31,6 @@ public class MonsterSpawner : MonoBehaviour
     private int spawnMonsterIndex = 0;
     private int spawnMonsterCount = 0;
 
-    
-
     private void Start()
     {
 
@@ -101,9 +99,5 @@ public class MonsterSpawner : MonoBehaviour
             myTime -= 1f;
             nextWaveCountDown--;
         }
-
-
-
     }
-
 }

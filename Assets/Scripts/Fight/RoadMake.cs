@@ -138,7 +138,7 @@ public class RoadMake : MonoBehaviour
             //Vector3 N_vec3 =new Vector3(1f,1f,1f);
             //road.transform.localScale = (startPoint - endPoint)+N_vec3;
 
-            // Instantiate(roadCell, endPoint, Quaternion.identity);          
+            // Instantiate(roadCell, endPoint, Quaternion.identity);
         }
         int i=0;
         for(;(2*i+1)<cell_num;i++){
