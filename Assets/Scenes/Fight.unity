@@ -661,6 +661,9 @@ MonoBehaviour:
   - {fileID: 3038891206515430475, guid: b589abf0aee5dd047b5fd0830862a89f, type: 3}
   - {fileID: 1640561790992519968, guid: 9ccf346a901440c4d8bc9aab6eb61174, type: 3}
   - {fileID: 1640561790992519968, guid: 9ccf346a901440c4d8bc9aab6eb61174, type: 3}
+  - {fileID: 641278294123220282, guid: 6118f5fde0755534ca9b09a6e4490285, type: 3}
+  - {fileID: 641278294123220282, guid: 6118f5fde0755534ca9b09a6e4490285, type: 3}
+  - {fileID: 232216937545713421, guid: 9447cab4a7e388345892c69038a905aa, type: 3}
   drawCardsUI: {fileID: 2098451159}
   handCardsUI: {fileID: 1652970514}
 --- !u!1 &518024320
@@ -1455,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4ba3fc572b83248a07a8ca1fb115b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSO: {fileID: 11400000, guid: e4c0876e23c90b94f9ea26d46c55dd60, type: 2}
+  levelSO: {fileID: 11400000, guid: 6931b6c5cde29324db840783b571063a, type: 2}
   roadMake: {fileID: 796839545}
 --- !u!1 &920280726
 GameObject:
