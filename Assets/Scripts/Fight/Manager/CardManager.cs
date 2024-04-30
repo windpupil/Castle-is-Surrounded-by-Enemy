@@ -24,6 +24,7 @@ public class CardManager : MonoBehaviour
         if(libraryCard.Count == 0)
         {
             currentLibraryCard.AddRange(startingLibraryCard);
+            libraryCard.AddRange(startingLibraryCard);
         }
         UpdateCurrentLibraryCard();
         DrawCard();
