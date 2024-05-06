@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fbbcaae613fd8c468ecdf67e5918c2d, type: 3}
   m_Name: "\u706B\u7403\u5B50\u5F39"
   m_EditorClassIdentifier: 
-  attack: 2
+  attack: 50
   speed: 1
   lastTimeHurt: 5
   hurtInterval: 1
